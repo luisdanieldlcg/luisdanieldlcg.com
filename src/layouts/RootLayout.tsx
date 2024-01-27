@@ -6,15 +6,7 @@ const RootLayout = () => {
     return (
         <>
             <Navbar />
-            {/* <Flex
-                as="main"
-                justifyContent="center"
-                flexDirection="column"
-            ></Flex> */}
             <Stack
-                // spacing="144px"
-                // justifyContent="center"
-                // alignItems="flex-start"
                 px={{ base: "5vw", md: "10vw" }}
                 mt={{ base: "15vh", md: "22.5vh" }}
             >

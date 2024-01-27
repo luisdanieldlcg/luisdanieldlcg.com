@@ -18,6 +18,7 @@ const overrides = {
     // declare custom color variables
     colors: {
         secondary: "#0F0E0E",
+        muted: "#d6d6d6",
     },
     styles: {
         global: {
