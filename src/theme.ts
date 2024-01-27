@@ -13,12 +13,31 @@ const fluidType = (minSize: number, maxSize: number) => {
     return `calc(${ZZ}rem + ((1vw - ${XX}px) * ${YY}))`;
 };
 
+const breakpoints = {
+    base: "0em",
+    sm: "30em",
+    md: "60em",
+    lg: "80em",
+    xl: "80em",
+};
+
+const Link = {
+    baseStyle: {
+        color: "#3CCF91",
+        _hover: { color: "#F6A20E", textDecoration: "none" },
+    },
+};
+
 const overrides = {
+    components: {
+        Link,
+    },
     config,
     // declare custom color variables
     colors: {
         secondary: "#0F0E0E",
         muted: "#d6d6d6",
+        highlight: "#6B46C1",
     },
     styles: {
         global: {
@@ -36,6 +55,7 @@ const overrides = {
         display2: fluidType(24, 36),
         display3: fluidType(16, 24),
     },
+    breakpoints,
 };
 
 // 3. extend the theme

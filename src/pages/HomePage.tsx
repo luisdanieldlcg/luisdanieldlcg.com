@@ -1,18 +1,19 @@
 // TODO: ask for introduction details with props
 
 import Profile from "../components/home/Profile";
-import { Heading, Text, Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import AboutMe from "../components/home/AboutMe";
+import FeaturedProjects from "../components/home/FeaturedProjects";
+
 const HomePage = () => {
     return (
         <>
             <Profile />
-            <Container>
-                <Heading>About Me</Heading>
-                <Text>
-                    Hey! I'm Luis. I've been programming since late 2019, and
-                    have been passionate about it ever since.
-                </Text>
-            </Container>
+            <Box height="60" />
+            <AboutMe />
+            <Box height="60" />
+            <FeaturedProjects />
+            <Box height="60" />
         </>
     );
 };
