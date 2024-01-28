@@ -8,6 +8,9 @@ import {
     Divider,
     SimpleGrid,
     SlideFade,
+    Skeleton,
+    Box,
+    SkeletonText,
 } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import { useEffect, useState } from "react";
@@ -26,9 +29,14 @@ const Projects = ({}: Props) => {
     };
 
     const [projects, setProjects] = useState<Project[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    // TODO: serialize projects
+
     useEffect(() => {
         fetchRepositories().then((projects) => {
             setProjects(projects ?? []);
+            setLoading(false);
         });
     }, []);
 
@@ -48,7 +56,6 @@ const Projects = ({}: Props) => {
                 />
             );
         });
-
     return (
         <>
             <SlideFade in={true}>
@@ -80,11 +87,22 @@ const Projects = ({}: Props) => {
                 </VStack>
             </SlideFade>
             <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={8} my="8">
-                {cards.length === 0 ? (
+                {loading ? (
+                    [1, 2, 3, 4, 5, 6].map((i) => {
+                        return (
+                            <Box key={i} borderRadius="10px" p="6">
+                                <Skeleton height="360px" borderRadius="10px" />
+                                <SkeletonText
+                                    mt="6"
+                                    noOfLines={5}
+                                    spacing="4"
+                                />
+                            </Box>
+                        );
+                    })
+                ) : cards.length === 0 ? (
                     <Text fontSize={{ base: "14px", md: "16px" }}>
-                        {query === ""
-                            ? "Looks like something went wrong, try again later."
-                            : "No projects found."}
+                        No projects found.
                     </Text>
                 ) : (
                     cards
