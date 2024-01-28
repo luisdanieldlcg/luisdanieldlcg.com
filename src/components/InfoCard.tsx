@@ -14,7 +14,7 @@ const InfoCard = ({ children }: Props) => {
                     boxShadow="md"
                     p="3"
                     bg="#21262a"
-                    bgGradient="linear(to-r, transparent, blackAlpha.800)"
+                    bgGradient="linear(to-r, transparent, blackAlpha.700)"
                 >
                     {children}
                 </Card>

@@ -1,9 +1,19 @@
 import { Box, Heading, Link, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import ProjectCard, { Project } from "../ProjectCard";
 import SlideUpWhenVisible from "../SlideUpWhenVisible";
-import { TbBrandFirebase, TbBrandFlutter } from "react-icons/tb";
-import { FaRust } from "react-icons/fa";
-import { SiDart } from "react-icons/si";
+import {
+    TbBrandFirebase,
+    TbBrandFlutter,
+    TbBrandTypescript,
+} from "react-icons/tb";
+import { FaRust, FaVuejs } from "react-icons/fa";
+import {
+    SiDart,
+    SiNuxtdotjs,
+    SiNestjs,
+    SiMongodb,
+    SiVuetify,
+} from "react-icons/si";
 
 const FeaturedProjects = () => {
     const projects: Project[] = [
@@ -24,6 +34,20 @@ const FeaturedProjects = () => {
                 ["Dart", <SiDart />, "blue"],
                 ["Flutter", <TbBrandFlutter />, "blue"],
                 ["Firebase", <TbBrandFirebase />, "yellow"],
+            ],
+        },
+        {
+            title: "Nappy",
+            imageUrl:
+                "https://github.com/DanikingRD/nappy-web/raw/main/misc/create_profile.png",
+            desc: "A CMS for creating and managing digital business cards.",
+            tags: [
+                ["Typescript", <TbBrandTypescript />, "blue"],
+                ["Vue", <FaVuejs />, "green"],
+                ["Vuetify", <SiVuetify />, "blue"],
+                ["Nuxt", <SiNuxtdotjs />, "green"],
+                ["NestJS", <SiNestjs />, "red"],
+                ["MongoDB", <SiMongodb />, "green"],
             ],
         },
     ];
