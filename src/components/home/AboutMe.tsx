@@ -13,7 +13,7 @@ import { FcLinux } from "react-icons/fc";
 const AboutMe = () => {
     return (
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={16}>
-            <InfoCard>
+            <InfoCard >
                 <CardHeader>
                     <HStack>
                         <Image

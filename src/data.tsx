@@ -1,10 +1,9 @@
-import { Project } from "./components/ProjectCard";
 import {
     TbBrandFirebase,
     TbBrandFlutter,
     TbBrandTypescript,
 } from "react-icons/tb";
-import { FaRust, FaVuejs } from "react-icons/fa";
+import { FaJava, FaRust, FaVuejs } from "react-icons/fa";
 import {
     SiDart,
     SiNuxtdotjs,
@@ -12,6 +11,8 @@ import {
     SiMongodb,
     SiVuetify,
 } from "react-icons/si";
+import { Project } from "./types/project";
+import { CIcon, VulkanIcon, WGPUIcon } from "./components/Icons";
 
 export const featuredProjects: Project[] = [
     {
@@ -20,6 +21,7 @@ export const featuredProjects: Project[] = [
             "https://github.com/DanikingRD/VoxelExperiment/raw/main/assets/game-screenshot.png",
         desc: "Explora is a multiplayer Voxel game made with Rust and WGPU. It's still in development, but you can check out the source code on GitHub.",
         tags: [["Rust", <FaRust />, "orange"]],
+        httpLink: "https://github.com/DanikingRD/explora",
     },
 
     {
@@ -32,6 +34,7 @@ export const featuredProjects: Project[] = [
             ["Flutter", <TbBrandFlutter />, "blue"],
             ["Firebase", <TbBrandFirebase />, "yellow"],
         ],
+        httpLink: "https://github.com/DanikingRD/whatsup",
     },
     {
         title: "Nappy",
@@ -46,5 +49,24 @@ export const featuredProjects: Project[] = [
             ["NestJS", <SiNestjs />, "red"],
             ["MongoDB", <SiMongodb />, "green"],
         ],
+        httpLink: "https://github.com/DanikingRD/nappy",
     },
+];
+
+// Ugh...
+export const tagMap = [
+    ["Rust", <FaRust />, "orange"],
+    ["Dart", <SiDart />, "blue"],
+    ["Flutter", <TbBrandFlutter />, "blue"],
+    ["Firebase", <TbBrandFirebase />, "yellow"],
+    ["Typescript", <TbBrandTypescript />, "blue"],
+    ["Vue", <FaVuejs />, "green"],
+    ["Vuetify", <SiVuetify />, "blue"],
+    ["Nuxt", <SiNuxtdotjs />, "green"],
+    ["NestJS", <SiNestjs />, "red"],
+    ["MongoDB", <SiMongodb />, "green"],
+    ["C", <CIcon />, "blue"],
+    ["Java", <FaJava />, "orange"],
+    ["Wgpu", <WGPUIcon />, "blue"],
+    ["Vulkan", <VulkanIcon />, "red"],
 ];
