@@ -30,26 +30,22 @@ const Navbar = () => {
                     </DrawerHeader>
 
                     <DrawerCloseButton />
-                    <Button variant="ghost">
-                        <NavLink
-                            to="/"
-                            style={({ isActive }) => {
-                                return { fontWeight: isActive ? 700 : 400 };
-                            }}
-                        >
-                            Home
-                        </NavLink>
-                    </Button>
-                    <Button variant="ghost">
-                        <NavLink
-                            to="/projects"
-                            style={({ isActive }) => {
-                                return { fontWeight: isActive ? 700 : 400 };
-                            }}
-                        >
-                            Projects
-                        </NavLink>
-                    </Button>
+                    <NavLink
+                        to="/"
+                        style={({ isActive }) => {
+                            return { fontWeight: isActive ? 700 : 400 };
+                        }}
+                    >
+                        <Button variant="ghost">Home</Button>
+                    </NavLink>
+                    <NavLink
+                        to="/projects"
+                        style={({ isActive }) => {
+                            return { fontWeight: isActive ? 700 : 400 };
+                        }}
+                    >
+                        <Button variant="ghost">Projects</Button>
+                    </NavLink>
                 </DrawerContent>
             </Drawer>
         );
@@ -78,34 +74,31 @@ const Navbar = () => {
                             ></HamburgerIcon>
                         ) : (
                             <>
-                                <Button p="4" ml="3vw" variant="ghost">
-                                    <NavLink
-                                        to="/"
-                                        style={({ isActive }) => {
-                                            return {
-                                                fontWeight: isActive
-                                                    ? 700
-                                                    : 400,
-                                            };
-                                        }}
-                                    >
+                                <NavLink
+                                    to="/"
+                                    style={({ isActive }) => {
+                                        return {
+                                            fontWeight: isActive ? 700 : 400,
+                                        };
+                                    }}
+                                >
+                                    <Button p="4" ml="3vw" variant="ghost">
                                         Home
-                                    </NavLink>
-                                </Button>
-                                <Button p="4" ml="3vw" variant="ghost">
-                                    <NavLink
-                                        to="/projects"
-                                        style={({ isActive }) => {
-                                            return {
-                                                fontWeight: isActive
-                                                    ? 700
-                                                    : 400,
-                                            };
-                                        }}
-                                    >
+                                    </Button>
+                                </NavLink>
+
+                                <NavLink
+                                    to="/projects"
+                                    style={({ isActive }) => {
+                                        return {
+                                            fontWeight: isActive ? 700 : 400,
+                                        };
+                                    }}
+                                >
+                                    <Button p="4" ml="3vw" variant="ghost">
                                         Projects
-                                    </NavLink>
-                                </Button>
+                                    </Button>
+                                </NavLink>
                             </>
                         )}
                     </Flex>
