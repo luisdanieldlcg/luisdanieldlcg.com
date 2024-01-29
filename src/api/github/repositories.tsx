@@ -34,9 +34,14 @@ const fetchContent = async (
         }
 
         const text = await res.text();
-        const images = text.match(/!\[.*?\]\((.*?)\)/g)?.map((match) => {
-            return match.match(/!\[.*?\]\((.*?)\)/)?.[1] ?? "";
-        });
+        // extract all relative + external paths including ./, ../, /, https://, http://, etc
+        const regex = /(?:!\[(.*?)\]\((.*?)\)|<img.*?src=['"](.*?)['"].*?>)/g;
+        const images = [];
+
+        let match;
+        while ((match = regex.exec(text))) {
+            images.push(match[2] || match[3]);
+        }
 
         const markdown: Markdown = {
             rawText: text,
@@ -50,16 +55,16 @@ const fetchContent = async (
 };
 
 export const fetchRepositories = async (
-    perPage: number
+    page: number
 ): Promise<Project[] | null> => {
-    const res = await fetch(
-        `${API_URL}/users/danikingrd/repos?per_page=${perPage}&page=1`,
-        {
-            headers: {
-                authorization: `token ${process.env.GITHUB_PAT}`,
-            },
-        }
-    );
+    // There is probably something wrong if we need more than 10 pages using the default page size
+    if (page >= 10) return null;
+    //  per_page = 30 by default
+    const res = await fetch(`${API_URL}/users/danikingrd/repos?page=${page}`, {
+        headers: {
+            authorization: `token ${process.env.GITHUB_PAT}`,
+        },
+    });
     if (res.status !== 200) {
         const json = (await res.json()) as {
             documentation_url: string;
@@ -113,7 +118,7 @@ export const fetchRepositories = async (
                     "/" +
                     repo.default_branch +
                     "/" +
-                    markdown?.images[0],
+                    markdown?.images[0], // TODO: use a default image
                 tags: tags,
                 httpLink: repo.html_url,
             };

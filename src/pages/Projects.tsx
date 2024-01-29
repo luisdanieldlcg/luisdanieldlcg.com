@@ -17,11 +17,13 @@ import { useEffect, useState } from "react";
 import { Project } from "../types/project";
 import ProjectCard from "../components/ProjectCard";
 import { fetchRepositories } from "../api/github/repositories";
-import { readProjects, writeProjects } from "../serde";
+import InfoCard from "../components/InfoCard";
 
 interface Props {
     projects: Project[];
 }
+
+const projectsPerPage = 6;
 
 const Projects = ({}: Props) => {
     const [query, setQuery] = useState("");
@@ -32,27 +34,30 @@ const Projects = ({}: Props) => {
     const [projects, setProjects] = useState<Project[]>([]);
     const [loading, setLoading] = useState(true);
 
-    const cached = readProjects();
+    const [fetchPage, setFetchPage] = useState(1); // The page to fetch from github
+    const [realPage, setRealPage] = useState(1); // The page to show
 
     useEffect(() => {
-        if (cached && cached.length > 0) {
-            setProjects(cached);
+        // Fetch until we have projectsPerPage available projects or we got all projects
+        fetchRepositories(fetchPage).then((newProjects) => {
+            if (!newProjects || newProjects.length === 0) {
+                return;
+            }
+            setProjects([...projects, ...(newProjects ?? [])]);
+            if (projects) {
+            }
             setLoading(false);
-        } else {
-            fetchRepositories(100).then((projects) => {
-                setProjects(projects ?? []);
-                if (projects) {
-                    writeProjects(projects);
-                }
-                setLoading(false);
-            });
-        }
-    }, []);
+            if (projects.length < fetchPage * projectsPerPage) {
+                setFetchPage(fetchPage + 1);
+            }
+        });
+    }, [fetchPage]);
 
     const cards = projects
         .filter((project) =>
             project.title.toLowerCase().includes(query.toLowerCase())
         )
+        .slice(0, projectsPerPage * realPage)
         .map((project) => {
             return (
                 <ProjectCard
@@ -95,7 +100,7 @@ const Projects = ({}: Props) => {
                     <Divider />
                 </VStack>
             </SlideFade>
-            <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={8} my="8">
+            <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={12} my="8">
                 {loading ? (
                     [1, 2, 3, 4, 5, 6].map((i) => {
                         return (
@@ -117,6 +122,30 @@ const Projects = ({}: Props) => {
                     cards
                 )}
             </SimpleGrid>
+
+            {/*  Are there more projects to load?  */}
+            {projects.length >= projectsPerPage * realPage ? (
+                <SlideFade in={true}>
+                    <Box
+                        onClick={() => {
+                            setFetchPage(fetchPage + 1);
+                            setRealPage(realPage + 1);
+                        }}
+                        p="4"
+                        borderRadius="10px"
+                        // put in the bottom center
+                        position="absolute"
+                        left="45%"
+                        transform="translateX(-50%)"
+                        cursor="pointer"
+                        py="10"
+                        width="40"
+                        textAlign="center"
+                    >
+                        <InfoCard>Load more</InfoCard>
+                    </Box>
+                </SlideFade>
+            ) : null}
         </>
     );
 };
