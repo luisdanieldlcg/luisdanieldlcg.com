@@ -49,13 +49,17 @@ const fetchContent = async (
     }
 };
 
-export const fetchRepositories = async (): Promise<Project[] | null> => {
-    const res = await fetch(`${API_URL}/users/danikingrd/repos?per_page=100`, {
-        headers: {
-            authorization: `token ${process.env.GITHUB_PAT}`,
-        },
-    });
-
+export const fetchRepositories = async (
+    perPage: number
+): Promise<Project[] | null> => {
+    const res = await fetch(
+        `${API_URL}/users/danikingrd/repos?per_page=${perPage}&page=1`,
+        {
+            headers: {
+                authorization: `token ${process.env.GITHUB_PAT}`,
+            },
+        }
+    );
     if (res.status !== 200) {
         const json = (await res.json()) as {
             documentation_url: string;
@@ -66,6 +70,7 @@ export const fetchRepositories = async (): Promise<Project[] | null> => {
     }
 
     const repositories = (await res.json()) as Repository[];
+
     const result = repositories
         .filter((repo) =>
             repo.topics.some((topic) => {

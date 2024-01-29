@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { Project } from "../types/project";
 import ProjectCard from "../components/ProjectCard";
 import { fetchRepositories } from "../api/github/repositories";
+import { readProjects, writeProjects } from "../serde";
 
 interface Props {
     projects: Project[];
@@ -31,13 +32,21 @@ const Projects = ({}: Props) => {
     const [projects, setProjects] = useState<Project[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // TODO: serialize projects
+    const cached = readProjects();
 
     useEffect(() => {
-        fetchRepositories().then((projects) => {
-            setProjects(projects ?? []);
+        if (cached && cached.length > 0) {
+            setProjects(cached);
             setLoading(false);
-        });
+        } else {
+            fetchRepositories(100).then((projects) => {
+                setProjects(projects ?? []);
+                if (projects) {
+                    writeProjects(projects);
+                }
+                setLoading(false);
+            });
+        }
     }, []);
 
     const cards = projects
