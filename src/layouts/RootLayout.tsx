@@ -1,18 +1,21 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { Stack } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Box, Stack, useColorModeValue } from "@chakra-ui/react";
 
 const RootLayout = () => {
+    const bgColor = useColorModeValue("bgLight", "bgDark");
+
     return (
         <>
             <Navbar />
-            <Stack
+            <Box
                 px={{ base: "5vw", md: "10vw" }}
-                mt={{ base: "15vh", md: "22.5vh" }}
+                py={{ base: "5vh", md: "22vh" }}
+                bg={bgColor}
+                transition="background-color 0.5s"
             >
                 <Outlet />
-            </Stack>
+            </Box>
         </>
     );
 };

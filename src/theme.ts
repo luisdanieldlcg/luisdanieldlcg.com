@@ -1,5 +1,5 @@
 // 1. import `extendTheme` function
-import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 // 2. Add your color mode config
 const config: ThemeConfig = {
     initialColorMode: "dark",
@@ -40,8 +40,8 @@ const overrides = {
         muted: "#d6d6d6",
         highlight: "#6B46C1",
 
-        bgDark: "#0a0908",
-        bgLight: "#e5e5e5",
+        bgDark: "#11111b",
+        bgLight: "#eff1f5",
     },
     styles: {
         global: (props: any) => ({
