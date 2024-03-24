@@ -14,11 +14,12 @@ const fluidType = (minSize: number, maxSize: number) => {
 };
 
 const breakpoints = {
-    base: "0em",
-    sm: "30em",
-    md: "60em",
-    lg: "80em",
-    xl: "80em",
+    base: "0em", // 0px
+    sm: "30em", // 480px
+    md: "48em", // 768px
+    lg: "62em", // 992px
+    xl: "80em", // 1280px
+    "2xl": "96em", // 1536px
 };
 
 const Link = {
@@ -38,13 +39,16 @@ const overrides = {
         secondary: "#0F0E0E",
         muted: "#d6d6d6",
         highlight: "#6B46C1",
+
+        bgDark: "#0a0908",
+        bgLight: "#e5e5e5",
     },
     styles: {
-        global: {
+        global: (props: any) => ({
             body: {
-                background: "#000000",
+                background: props.colorMode === "dark" ? "#0a0908" : "#e5e5e5",
             },
-        },
+        }),
     },
     fonts: {
         heading: `'Montserrat', sans-serif`,
@@ -56,6 +60,8 @@ const overrides = {
         display3: fluidType(16, 24),
     },
     breakpoints,
+
+    // light / dark background color switch
 };
 
 // 3. extend the theme
