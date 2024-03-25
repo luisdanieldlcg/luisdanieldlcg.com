@@ -37,7 +37,7 @@ const overrides = {
     // declare custom color variables
     colors: {
         secondary: "#0F0E0E",
-        muted: "#d6d6d6",
+        muted: "#a0a3bd",
         highlight: "#6B46C1",
 
         bgDark: "#11111b",
@@ -51,8 +51,8 @@ const overrides = {
         }),
     },
     fonts: {
-        heading: `'Montserrat', sans-serif`,
-        body: `'Montserrat', sans-serif`,
+        heading: `'Inter', sans-serif`,
+        body: `'Inter', sans-serif`,
     },
     fontSizes: {
         display: fluidType(34, 82),

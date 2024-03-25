@@ -22,9 +22,11 @@ import {
 } from "@chakra-ui/react";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { NavLink as ReactRouterLink } from "react-router-dom";
-import ThemeSwitcher from "./ThemeSwitcher";
+import { NavLink as ReactRouterLink, useLocation } from "react-router-dom";
+import ThemeSwitcher from "../ThemeSwitcher";
 import { FaCode, FaHome } from "react-icons/fa";
+import NavbarButton from "./NavbarButton";
+import { motion } from "framer-motion";
 
 interface ProfileAvatarProps {
     tooltipLabel?: string;
@@ -105,40 +107,35 @@ const Navbar = () => {
                 </>
             );
         } else {
-            const linkStyle = (isActive: boolean) => {
-                const activeColor = useColorModeValue("#7287fd", "#cdd6f4");
-                const inactiveColor = useColorModeValue("#4c4f69", "#fff");
-                return {
-                    color: isActive ? activeColor : inactiveColor,
-                };
+            const routes = [
+                {
+                    title: "Home",
+                    to: "/",
+                },
+                {
+                    title: "Projects",
+                    to: "/projects",
+                },
+            ];
+            const loc = useLocation();
+            const selected = (path: string) => {
+                return loc.pathname === path;
             };
+            const buttons = routes.map((route, index) => {
+                return (
+                    <NavbarButton
+                        key={index}
+                        title={route.title}
+                        to={route.to}
+                        selected={selected(route.to)}
+                    />
+                );
+            });
             return (
                 <>
                     <ProfileAvatar tooltipLabel="Click to view my profile" />
                     <Spacer />
-
-                    <ReactRouterLink
-                        to="/"
-                        style={({ isActive }) => {
-                            return linkStyle(isActive);
-                        }}
-                    >
-                        <Button variant="subtle" mx="1.5rem">
-                            Home
-                        </Button>
-                    </ReactRouterLink>
-
-                    <ReactRouterLink
-                        to="/projects"
-                        style={({ isActive }) => {
-                            return linkStyle(isActive);
-                        }}
-                    >
-                        <Button variant="subtle" mx="1.5rem">
-                            Projects
-                        </Button>
-                    </ReactRouterLink>
-
+                    {buttons}
                     <Box mx="1.5rem">
                         <ThemeSwitcher />
                     </Box>
