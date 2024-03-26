@@ -14,7 +14,7 @@ const NavbarButton = ({ title, to, selected }: NavbarButtonProps) => {
         const inactiveColor = useColorModeValue("muted", "#6c6e87");
         return {
             color: isActive ? activeColor : inactiveColor,
-            fontWeight: isActive ? "bold" : "normal",
+            fontWeight: "100",
         };
     };
     const hoverColor = useColorModeValue("muted", "#bcc0cc");
@@ -36,6 +36,7 @@ const NavbarButton = ({ title, to, selected }: NavbarButtonProps) => {
                     _hover={{
                         color: hoverColor,
                     }}
+                    fontWeight="100"
                 >
                     {title}
                     {selected ? (
@@ -48,13 +49,12 @@ const NavbarButton = ({ title, to, selected }: NavbarButtonProps) => {
                             className="underline"
                             layoutId="underline"
                             style={{
+                                originY: "0px",
                                 position: "absolute",
                                 top: "100%",
-                                marginTop: "0.4rem",
                                 backgroundColor: "#7287fd",
                                 width: "100%",
-                                height: "5px",
-                                borderRadius: "3000px",
+                                height: "3px",
                             }}
                         ></motion.div>
                     ) : null}

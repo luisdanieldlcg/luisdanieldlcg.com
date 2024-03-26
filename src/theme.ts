@@ -4,6 +4,7 @@ import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 const config: ThemeConfig = {
     initialColorMode: "dark",
     useSystemColorMode: false,
+    disableTransitionOnChange: false,
 };
 
 const fluidType = (minSize: number, maxSize: number) => {
@@ -14,12 +15,12 @@ const fluidType = (minSize: number, maxSize: number) => {
 };
 
 const breakpoints = {
-    base: "0em", // 0px
-    sm: "30em", // 480px
-    md: "48em", // 768px
-    lg: "62em", // 992px
-    xl: "80em", // 1280px
-    "2xl": "96em", // 1536px
+    base: "0rem", // 0px
+    sm: "30rem", // 480px
+    md: "48rem", // 768px
+    lg: "64rem", // 1024px
+    xl: "80rem", // 1280px
+    "2xl": "96rem", // 1536px
 };
 
 const Link = {
@@ -29,9 +30,19 @@ const Link = {
     },
 };
 
-const overrides = {
+// 3. extend the theme
+const theme = extendTheme({
     components: {
         Link,
+    },
+    fonts: {
+        heading: `'Raleway', sans-serif`,
+        body: `'Raleway', sans-serif`,
+    },
+    fontSizes: {
+        // display: fluidType(34, 82),
+        // display2: fluidType(24, 36),
+        // display3: fluidType(16, 24),
     },
     config,
     // declare custom color variables
@@ -39,32 +50,20 @@ const overrides = {
         secondary: "#0F0E0E",
         muted: "#a0a3bd",
         highlight: "#6B46C1",
-
-        bgDark: "#11111b",
+        bgDark: "#1c1c2b",
         bgLight: "#eff1f5",
     },
     styles: {
         global: (props: any) => ({
             body: {
-                background: props.colorMode === "dark" ? "#0a0908" : "#e5e5e5",
+                background: props.colorMode === "dark" ? "bgDark" : "bgLight",
             },
         }),
     },
-    fonts: {
-        heading: `'Inter', sans-serif`,
-        body: `'Inter', sans-serif`,
-    },
-    fontSizes: {
-        display: fluidType(34, 82),
-        display2: fluidType(24, 36),
-        display3: fluidType(16, 24),
-    },
+
     breakpoints,
 
     // light / dark background color switch
-};
-
-// 3. extend the theme
-const theme = extendTheme(overrides);
+});
 
 export default theme;

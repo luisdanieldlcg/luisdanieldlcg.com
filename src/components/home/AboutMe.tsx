@@ -1,28 +1,30 @@
 import {
+    Box,
     CardBody,
     CardHeader,
+    Center,
     HStack,
     Heading,
     Image,
-    SimpleGrid,
     Text,
 } from "@chakra-ui/react";
 import InfoCard from "../InfoCard";
-import { FcLinux } from "react-icons/fc";
 
 const AboutMe = () => {
     return (
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={16}>
-            <InfoCard >
+        <Box maxW={800} mx="auto" boxShadow="md" transition="0.25s" id="about">
+            <InfoCard>
                 <CardHeader>
-                    <HStack>
-                        <Image
-                            src="src/assets/biography.png"
-                            alt="about"
-                            boxSize="40px"
-                        />
-                        <Heading>About Me</Heading>
-                    </HStack>
+                    <Center>
+                        <HStack>
+                            <Image
+                                src="src/assets/biography.png"
+                                alt="about"
+                                boxSize="40px"
+                            />
+                            <Heading>About Me</Heading>
+                        </HStack>
+                    </Center>
                 </CardHeader>
                 <CardBody>
                     <Text>
@@ -40,7 +42,12 @@ const AboutMe = () => {
                     </Text>
                 </CardBody>
             </InfoCard>
+        </Box>
+        // <SimpleGrid columns={{ base: 1, md: 2 }} spacing={16}>
+        //     <Center>
 
+        //     </Center>
+        /* 
             <InfoCard>
                 <CardHeader>
                     <HStack>
@@ -66,8 +73,8 @@ const AboutMe = () => {
                         would otherwise be tedious to do each time manually.
                     </Text>
                 </CardBody>
-            </InfoCard>
-        </SimpleGrid>
+            </InfoCard> */
+        // {/* </SimpleGrid> */}
     );
 };
 

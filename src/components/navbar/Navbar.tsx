@@ -143,15 +143,18 @@ const Navbar = () => {
             );
         }
     };
+
+    const borderColors = useColorModeValue("#dce0e8", "#1e2030");
     return (
         <>
-            <Box position="sticky" zIndex="99">
+            <Box position="sticky" zIndex="100">
                 <Slide in={true} direction="top">
                     <Flex
                         as="nav"
                         px="3vw"
                         py="0.9rem"
-                        borderBottom="0.01px solid #1e2029"
+                        // borderBottom="0.01px solid #dce0e8"
+                        borderBottom={`0.01px solid ${borderColors}`}
                         bg={bg}
                     >
                         <NavbarComponent />

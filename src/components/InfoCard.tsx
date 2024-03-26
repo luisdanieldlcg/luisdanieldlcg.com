@@ -8,14 +8,8 @@ interface Props {
 const InfoCard = ({ children }: Props) => {
     return (
         <SlideUpWhenVisible>
-            <motion.div whileHover={{ scale: 1.07 }}>
-                <Card
-                    borderRadius="16px"
-                    boxShadow="md"
-                    p="3"
-                    bg="#21262a"
-                    bgGradient="linear(to-r, transparent, blackAlpha.700)"
-                >
+            <motion.div whileHover={{ scale: 1.02 }}>
+                <Card borderRadius="16px" boxShadow="md" p="3" bg="#181825">
                     {children}
                 </Card>
             </motion.div>
