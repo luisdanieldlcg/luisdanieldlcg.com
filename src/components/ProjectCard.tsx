@@ -1,14 +1,18 @@
 import {
-    Card,
     CardBody,
-    CardHeader,
+    CardFooter,
+    Divider,
+    Flex,
     HStack,
+    Heading,
     Image,
     ScaleFade,
     Spacer,
+    Stack,
     Tag,
     TagLabel,
     Text,
+    useColorModeValue,
 } from "@chakra-ui/react";
 
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
@@ -16,6 +20,7 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { ProjectTag } from "../types/project";
 import { Link } from "react-router-dom";
+import AnimatedCard from "./AnimatedCard";
 
 interface Props {
     title: string;
@@ -27,59 +32,67 @@ interface Props {
 
 const ProjectCard = ({ title, imageUrl, desc, tags, httpLink }: Props) => {
     const formattedTitle = title.charAt(0).toUpperCase() + title.slice(1);
+    const textStyle = useColorModeValue("mutedLight", "mutedDark");
     return (
         <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.1 }}>
             <Link to={httpLink} color="white" target="_blank">
                 <ScaleFade in={true} initialScale={0.75}>
-                    <Card
-                        maxW="600"
-                        bg="secondary"
-                        bgGradient="linear(to-r, transparent, blackAlpha.900)"
-                        borderRadius="10px"
-                        border="1px"
-                        borderColor={{ base: "#333", md: "borderColor" }}
-                    >
-                        {/* // TODO: Make the images fit better  */}
-                        <CardHeader p="0" minH="320px" maxH="500px">
-                            <Image
-                                borderBottom="1px solid #222"
-                                borderTopRadius="10px"
-                                src={imageUrl}
-                                alt={formattedTitle}
-                                maxH="500"
-                                transition="0.3s"
-                            />
-                        </CardHeader>
+                    <AnimatedCard>
                         <CardBody>
-                            <HStack alignItems="center" spacing={4}>
-                                <Text fontSize="2xl" fontWeight="bold">
-                                    {formattedTitle}
-                                </Text>
-                                <Spacer></Spacer>
-                                <FaGithub aria-label="github" size={23} />
-                                <FaExternalLinkAlt
-                                    aria-label="project link"
-                                    size={20}
+                            {
+                                <Image
+                                    src={imageUrl}
+                                    alt="Green double couch with wooden legs"
+                                    borderRadius="md"
+                                    h="300px"
+                                    w="100%"
+                                    fit="cover"
                                 />
-                            </HStack>
-                            <HStack mt="3">
-                                {tags.map((tag) => (
-                                    <Tag
-                                        colorScheme={tag[2]}
-                                        key={tag[0] + title}
+                            }
+                            <Stack mt="6" spacing="3">
+                                <HStack>
+                                    <Heading
+                                        as="h2"
+                                        size="lg"
+                                        fontFamily="Inter"
+                                        color="#f2d5cf"
+                                        bgGradient="linear(to-l, #c6a0f6, #e4adbc)"
+                                        bgClip="text"
                                     >
-                                        <HStack>
-                                            {tag[1]}
-                                            <TagLabel>{tag[0]}</TagLabel>
-                                        </HStack>
-                                    </Tag>
-                                ))}
-                            </HStack>
-                            <Text mt="5" mb="2">
-                                {desc}
-                            </Text>
+                                        {formattedTitle}
+                                    </Heading>
+                                    <Spacer></Spacer>
+                                    <HStack spacing="4">
+                                        <FaGithub
+                                            aria-label="github"
+                                            size={23}
+                                        />
+                                        <FaExternalLinkAlt
+                                            aria-label="project link"
+                                            size={20}
+                                        />
+                                    </HStack>
+                                </HStack>
+                                <HStack wrap="wrap">
+                                    {tags.map((tag) => (
+                                        <Tag
+                                            colorScheme={tag[2]}
+                                            key={tag[0] + title}
+                                        >
+                                            <HStack>
+                                                {tag[1]}
+                                                <TagLabel>{tag[0]}</TagLabel>
+                                            </HStack>
+                                        </Tag>
+                                    ))}
+                                </HStack>
+                            </Stack>
                         </CardBody>
-                    </Card>
+                        <Divider />
+                        <CardFooter>
+                            <Text color={textStyle}> {desc} </Text>
+                        </CardFooter>
+                    </AnimatedCard>
                 </ScaleFade>
             </Link>
         </motion.div>

@@ -1,7 +1,18 @@
-import { Box, Heading, Link, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import {
+    Box,
+    HStack,
+    Heading,
+    Icon,
+    Link,
+    SimpleGrid,
+    Stack,
+    Text,
+    useColorModeValue,
+} from "@chakra-ui/react";
 import SlideUpWhenVisible from "../SlideUpWhenVisible";
 import { Project } from "../../types/project";
 import ProjectCard from "../ProjectCard";
+import { GiClick } from "react-icons/gi";
 
 interface Props {
     projects: Project[];
@@ -18,30 +29,61 @@ const FeaturedProjects = ({ projects }: Props) => {
             httpLink={project.httpLink}
         />
     ));
+    const textStyle = useColorModeValue("mutedLight", "mutedDark");
 
     return (
-        <>
-            <SlideUpWhenVisible>
-                <Stack spacing={1}>
-                    <Heading> Projects.</Heading>
-                    <Text fontSize={{ base: "md", md: "xl" }}>
-                        Here are some of my featured projects.
-                    </Text>
-                    <Link display={"block"} href="/projects">
-                        <Text fontSize={{ base: "sm", md: "xl" }}>
-                            Explore more &rarr;
+        <section id="projects">
+            <Box mt={20}>
+                <SlideUpWhenVisible>
+                    <Stack>
+                        <Heading
+                            fontSize={{
+                                base: "1.6rem",
+                                md: "3.1rem",
+                            }}
+                            fontFamily="Inter"
+                            color="#cba6f7"
+                        >
+                            Projects.
+                        </Heading>
+                        <Text
+                            fontSize={{ base: "md", md: "xl" }}
+                            color={textStyle}
+                        >
+                            Here are some of my featured projects.
                         </Text>
-                    </Link>
-                </Stack>
-            </SlideUpWhenVisible>
-            <Box height="7" />
+                        <Box w="fit-content">
+                            <Link
+                                display={"block"}
+                                href="/projects"
+                                fontSize={{ base: "sm", md: "xl" }}
+                            >
+                                <HStack>
+                                    <Text
+                                        bgGradient="linear(to-l, #c6a0f6, #e4adbc)"
+                                        bgClip="text"
+                                    >
+                                        Click to explore more
+                                    </Text>
+                                    <Icon as={GiClick} />
+                                </HStack>
+                            </Link>
+                        </Box>
+                    </Stack>
+                </SlideUpWhenVisible>
+                <Box height="7" />
 
-            <SlideUpWhenVisible>
-                <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={10}>
-                    {cards}
-                </SimpleGrid>
-            </SlideUpWhenVisible>
-        </>
+                <SlideUpWhenVisible>
+                    <SimpleGrid
+                        columns={{ sm: 1, md: 2 }}
+                        spacing={10}
+                        gap={32}
+                    >
+                        {cards}
+                    </SimpleGrid>
+                </SlideUpWhenVisible>
+            </Box>
+        </section>
     );
 };
 

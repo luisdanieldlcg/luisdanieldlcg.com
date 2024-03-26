@@ -6,98 +6,103 @@ import {
     Text,
     SlideFade,
     Center,
+    useColorModeValue,
 } from "@chakra-ui/react";
 
 const Intro = () => {
+    const textStyle = useColorModeValue("mutedLight", "mutedDark");
+
     return (
         <>
-            <Center>
-                <SimpleGrid columns={{ base: 1, lg: 2 }} px="10" gap={12}>
-                    <SlideFade
-                        in={true}
-                        transition={{ enter: { duration: 0.3, delay: 0.25 } }}
-                    >
-                        <Box mt={16} maxW="100%">
-                            <Text
-                                as="div"
-                                fontSize="lg"
-                                maxW={{
-                                    base: "auto",
-                                    md: "500px",
-                                }}
-                                ml="auto"
-                            >
+            <section id="intro">
+                <Center mt="20vh">
+                    <SimpleGrid columns={{ base: 1, lg: 2 }} gap={12}>
+                        <SlideFade
+                            in={true}
+                            transition={{
+                                enter: { duration: 0.3, delay: 0.25 },
+                            }}
+                        >
+                            <Box mt={16} maxW="100%">
                                 <Text
-                                    fontSize={{
-                                        base: "1rem",
-                                        md: "1.5rem",
-                                    }}
+                                    as="div"
+                                    fontSize="lg"
+                                    maxW="600"
+                                    ml="auto"
                                 >
-                                    <span
-                                        style={{
-                                            fontWeight: "bold",
+                                    <Text
+                                        fontSize={{
+                                            base: "1rem",
+                                            md: "1.5rem",
                                         }}
                                     >
-                                        Hello,
-                                    </span>{" "}
-                                    my name is
+                                        <span
+                                            style={{
+                                                fontWeight: "bold",
+                                            }}
+                                        >
+                                            Hello,
+                                        </span>{" "}
+                                        my name is
+                                    </Text>
+                                    <Heading
+                                        fontSize={{
+                                            base: "1.6rem",
+                                            md: "3.1rem",
+                                        }}
+                                        fontFamily="Inter"
+                                        bgGradient="linear(to-l, #c6a0f6, #e4adbc)"
+                                        bgClip="text"
+                                    >
+                                        Luis De La Cruz.
+                                    </Heading>
+                                    <Text color={textStyle} mt={5}>
+                                        I'm a Software Developer with experience
+                                        building web and mobile applications for
+                                        a variety of platforms.
+                                    </Text>
+                                    <Text color={textStyle} mt={5}>
+                                        My areas of interest include 3D
+                                        Graphics, Low-level Programming, and
+                                        Backend infrastructure.
+                                    </Text>
                                 </Text>
-                                <Heading
-                                    fontSize={{
-                                        base: "1.6rem",
-                                        md: "3.1rem",
-                                    }}
-                                    fontFamily="Inter"
-                                    bgGradient="linear(to-l, #c6a0f6, #e4adbc)"
-                                    bgClip="text"
-                                >
-                                    Luis De La Cruz.
-                                </Heading>
-                                <Text color="muted" mt={5}>
-                                    I'm a Software Developer with experience
-                                    building web and mobile applications for a
-                                    variety of platforms.
-                                </Text>
-                                <Text color="muted" mt={5}>
-                                    My areas of interest include 3D Graphics,
-                                    Low-level Programming, and Backend
-                                    infrastructure.
-                                </Text>
-                            </Text>
-                        </Box>
-                    </SlideFade>
+                            </Box>
+                        </SlideFade>
 
-                    <SlideFade
-                        in={true}
-                        transition={{ enter: { duration: 0.3, delay: 0.25 } }}
-                    >
-                        <Box position="relative">
-                            {/* Image Shade */}
-                            <Box
-                                boxSize={400}
-                                zIndex="-1"
-                                position="absolute"
-                                top="10"
-                                right="0"
-                                bottom="-20"
-                                left="50"
-                                bg="#26292a"
-                                bgGradient="linear(to-r, #1c1c2b, #7287fd)"
-                                opacity="0.6"
-                                borderRadius="md"
-                            ></Box>
+                        <SlideFade
+                            in={true}
+                            transition={{
+                                enter: { duration: 0.3, delay: 0.25 },
+                            }}
+                        >
+                            <Box position="relative">
+                                {/* Image Shade */}
+                                <Box
+                                    boxSize={400}
+                                    zIndex="-1"
+                                    position="absolute"
+                                    top="10"
+                                    right="0"
+                                    bottom="-20"
+                                    left="50"
+                                    bg="#26292a"
+                                    bgGradient="linear(to-r, #1c1c2b, #7287fd)"
+                                    opacity="0.6"
+                                    borderRadius="md"
+                                ></Box>
 
-                            {/* Image */}
-                            <Image
-                                boxSize={360}
-                                src="src/assets/images/5.jpg"
-                                objectFit="cover" // Ensure the image covers the entire container
-                                borderRadius="md"
-                            />
-                        </Box>
-                    </SlideFade>
-                </SimpleGrid>
-            </Center>
+                                <Image
+                                    boxSize={360}
+                                    src="src/assets/images/5.jpg"
+                                    objectFit="cover" // Ensure the image covers the entire container
+                                    borderRadius="md"
+                                />
+                            </Box>
+                        </SlideFade>
+                    </SimpleGrid>
+                </Center>
+            </section>
         </>
     );
 };

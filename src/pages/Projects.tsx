@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 import { Project } from "../types/project";
 import ProjectCard from "../components/ProjectCard";
 import { fetchRepositories } from "../api/github/repositories";
-import InfoCard from "../components/InfoCard";
+import AnimatedCard from "../components/AnimatedCard";
 
 interface Props {
     projects: Project[];
@@ -81,6 +81,7 @@ const Projects = ({}: Props) => {
                     <Heading fontSize={{ base: "4xl", md: "6xl" }}>
                         Projects
                     </Heading>
+
                     <Text fontSize={{ base: "14px", md: "16px" }}>
                         I love building projects and practice my engineering
                         skills, here's an archive of things that I've worked on.
@@ -142,7 +143,7 @@ const Projects = ({}: Props) => {
                         width="40"
                         textAlign="center"
                     >
-                        <InfoCard>Load more</InfoCard>
+                        <AnimatedCard>Load more</AnimatedCard>
                     </Box>
                 </SlideFade>
             ) : null}

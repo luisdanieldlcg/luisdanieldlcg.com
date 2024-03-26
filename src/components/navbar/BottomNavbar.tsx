@@ -3,39 +3,28 @@ import { Box, Center, Icon, VStack, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-interface Section {
-    id: string;
-    index: number;
-}
 const BottomNavbar = () => {
-    const [sectionId, setSectionId] = useState<Section>({
-        id: "",
-        index: 0,
-    });
+    const [shouldRender, setShouldRender] = useState(true);
 
     useEffect(() => {
-        const sectionList = document.querySelectorAll("section");
-        const sectionIds = Array.from(sectionList).map((section) => section.id);
-
         const handleScroll = () => {
-            sectionList.forEach((section, index) => {
-                const windowTop = window.scrollY;
-                const sectionTop = section.offsetTop;
-                if (windowTop > sectionTop * 0.5) {
-                    setSectionId({
-                        id: sectionIds[index],
-                        index: index,
-                    });
-                }
-            });
+            if (
+                window.innerHeight + window.scrollY >=
+                document.body.scrollHeight - 100
+            ) {
+                // you're at the bottom of the page
+                setShouldRender(false);
+            } else {
+                setShouldRender(true);
+            }
         };
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    });
 
-    if (sectionId.id === "") {
+    if (!shouldRender) {
         return null;
     }
     return (
@@ -45,7 +34,7 @@ const BottomNavbar = () => {
                     cursor="pointer"
                     onClick={() => {
                         window.scrollTo({
-                            top: window.innerHeight * (sectionId.index + 1),
+                            top: document.body.scrollHeight,
                             behavior: "smooth",
                         });
                     }}
@@ -60,7 +49,7 @@ const BottomNavbar = () => {
                             repeatType: "reverse",
                         }}
                     >
-                        <Text>{sectionId.id}</Text>
+                        <Text> Contact Me </Text>
                         <Center>
                             <Icon as={ArrowDownIcon} fontSize="2xl" />
                         </Center>

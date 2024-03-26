@@ -27,6 +27,7 @@ import ThemeSwitcher from "../ThemeSwitcher";
 import { FaCode, FaHome } from "react-icons/fa";
 import NavbarButton from "./NavbarButton";
 import { motion } from "framer-motion";
+import ExtendedTooltip from "../ExtendedTooltip";
 
 interface ProfileAvatarProps {
     tooltipLabel?: string;
@@ -35,7 +36,11 @@ interface ProfileAvatarProps {
 const ProfileAvatar = ({ tooltipLabel }: ProfileAvatarProps) => {
     const badgeBorderColor = useColorModeValue("white", "black");
     return (
-        <Tooltip label={tooltipLabel} aria-label="A tooltip" placement="bottom">
+        <ExtendedTooltip
+            label={tooltipLabel}
+            aria-label="A tooltip"
+            placement="bottom"
+        >
             <ReactRouterLink
                 to="https://github.com/luisdanieldlcg"
                 target="_blank"
@@ -59,7 +64,7 @@ const ProfileAvatar = ({ tooltipLabel }: ProfileAvatarProps) => {
                     </VStack>
                 </HStack>
             </ReactRouterLink>
-        </Tooltip>
+        </ExtendedTooltip>
     );
 };
 

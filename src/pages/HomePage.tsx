@@ -1,29 +1,20 @@
-// TODO: ask for introduction details with props
-
 import Intro from "../components/home/Intro";
-import { Box } from "@chakra-ui/react";
-import AboutMe from "../components/home/AboutMe";
+import { VStack } from "@chakra-ui/react";
+import About from "../components/home/About";
+import Contact from "../components/home/Contact";
 import FeaturedProjects from "../components/home/FeaturedProjects";
 import { featuredProjects } from "../data";
-import { Image } from "@chakra-ui/react";
+import SideNavbar from "../components/navbar/side/SideNavbar";
 const HomePage = () => {
     return (
         <>
-            <section id="intro">
+            <SideNavbar />
+            <VStack as="main" spacing="244px" pb="144px">
                 <Intro />
-            </section>
-            <Box
-                height="40vh"
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-            />
-            <section id="about">
-                <AboutMe />
-            </section>
-            {/* <Box height="60" /> */}
-            {/* <FeaturedProjects projects={featuredProjects} /> */}
-            {/* <Box height="60" /> */}
+                <About />
+                <FeaturedProjects projects={featuredProjects} />
+                <Contact />
+            </VStack>
         </>
     );
 };

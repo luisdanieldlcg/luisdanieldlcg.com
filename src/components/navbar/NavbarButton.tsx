@@ -9,15 +9,17 @@ interface NavbarButtonProps {
 }
 
 const NavbarButton = ({ title, to, selected }: NavbarButtonProps) => {
+    const textStyle = useColorModeValue("mutedLight", "mutedDark");
+
     const linkStyle = (isActive: boolean) => {
-        const activeColor = useColorModeValue("muted", "#fff");
-        const inactiveColor = useColorModeValue("muted", "#6c6e87");
+        const activeColor = useColorModeValue(textStyle, "#fff");
+        const inactiveColor = useColorModeValue(textStyle, "#6c6e87");
         return {
             color: isActive ? activeColor : inactiveColor,
             fontWeight: "100",
         };
     };
-    const hoverColor = useColorModeValue("muted", "#bcc0cc");
+    const hoverColor = useColorModeValue(textStyle, "#bcc0cc");
     return (
         <ReactRouterLink
             to={to}

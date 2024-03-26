@@ -6,12 +6,12 @@ import BottomNavbar from "../components/navbar/BottomNavbar";
 const RootLayout = () => {
     return (
         <>
-            <Box transition="0.25s" py="20vh" px="24vh">
+            <Box transition="0.25s" py="2vh">
                 <Navbar />
                 <Box>
                     <Outlet />
                 </Box>
-                {/* <BottomNavbar /> */}
+                <BottomNavbar />
             </Box>
         </>
     );
