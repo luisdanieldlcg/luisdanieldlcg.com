@@ -11,7 +11,7 @@ const RootLayout = () => {
                 <Box>
                     <Outlet />
                 </Box>
-                <BottomNavbar />
+                {/* <BottomNavbar /> */}
             </Box>
         </>
     );

@@ -1,32 +1,18 @@
-import {
-    Box,
-    CardBody,
-    CardHeader,
-    Center,
-    HStack,
-    Heading,
-    Image,
-    Text,
-} from "@chakra-ui/react";
-import InfoCard from "../InfoCard";
+import { Box, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
 
 const AboutMe = () => {
     return (
-        <Box maxW={800} mx="auto" boxShadow="md" transition="0.25s" id="about">
-            <InfoCard>
-                <CardHeader>
-                    <Center>
-                        <HStack>
-                            <Image
-                                src="src/assets/biography.png"
-                                alt="about"
-                                boxSize="40px"
-                            />
-                            <Heading>About Me</Heading>
-                        </HStack>
-                    </Center>
-                </CardHeader>
-                <CardBody>
+        <Box>
+            <Heading>About Me.</Heading>
+            <SimpleGrid
+                mt={6}
+                columns={{
+                    base: 1,
+                    md: 2,
+                }}
+                spacing={16}
+            >
+                <Box transition="0.25s" id="about">
                     <Text>
                         Hey! I'm Luis. I've been programming since late 2019,
                         and have been passionate about it ever since. Being
@@ -40,9 +26,32 @@ const AboutMe = () => {
                         systems and 3D graphics, many of which I've been
                         learning about in my spare time.
                     </Text>
+                    {/* <InfoCard>
+                <CardHeader>
+                    <Center>
+                        <HStack>
+                            <Image
+                                src="src/assets/biography.png"
+                                alt="about"
+                                boxSize="40px"
+                            />
+                            <Heading>About Me</Heading>
+                        </HStack>
+                    </Center>
+                </CardHeader>
+                <CardBody>
+                   
                 </CardBody>
-            </InfoCard>
+            </InfoCard> */}
+                </Box>
+                <Image
+                    src="https://cdn-icons-png.flaticon.com/512/10770/10770873.png"
+                    alt="about"
+                    boxSize="200px"
+                ></Image>
+            </SimpleGrid>
         </Box>
+
         // <SimpleGrid columns={{ base: 1, md: 2 }} spacing={16}>
         //     <Center>
 
