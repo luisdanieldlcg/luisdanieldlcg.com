@@ -2,9 +2,11 @@ import { ArrowDownIcon } from "@chakra-ui/icons";
 import { Box, Center, Icon, VStack, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const BottomNavbar = () => {
     const [shouldRender, setShouldRender] = useState(true);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,8 +27,9 @@ const BottomNavbar = () => {
     });
 
     if (!shouldRender) {
-        return null;
+        return <Box></Box>;
     }
+
     return (
         <Box position="fixed" bottom="0" right="0" left="0">
             <a>
@@ -49,7 +52,7 @@ const BottomNavbar = () => {
                             repeatType: "reverse",
                         }}
                     >
-                        <Text> Contact Me </Text>
+                        <Text>{t("floatingbar.button.text")}</Text>
                         <Center>
                             <Icon as={ArrowDownIcon} fontSize="2xl" />
                         </Center>

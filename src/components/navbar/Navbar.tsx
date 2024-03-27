@@ -18,7 +18,6 @@ import {
     AvatarBadge,
     VStack,
     Divider,
-    Tooltip,
 } from "@chakra-ui/react";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -26,8 +25,9 @@ import { NavLink as ReactRouterLink, useLocation } from "react-router-dom";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { FaCode, FaHome } from "react-icons/fa";
 import NavbarButton from "./NavbarButton";
-import { motion } from "framer-motion";
 import ExtendedTooltip from "../ExtendedTooltip";
+import LocaleSelector from "../LocaleSelector";
+import { useTranslation } from "react-i18next";
 
 interface ProfileAvatarProps {
     tooltipLabel?: string;
@@ -35,6 +35,7 @@ interface ProfileAvatarProps {
 
 const ProfileAvatar = ({ tooltipLabel }: ProfileAvatarProps) => {
     const badgeBorderColor = useColorModeValue("white", "black");
+    const { t } = useTranslation();
     return (
         <ExtendedTooltip
             label={tooltipLabel}
@@ -59,7 +60,7 @@ const ProfileAvatar = ({ tooltipLabel }: ProfileAvatarProps) => {
                             Luis Daniel
                         </Text>
                         <Text fontSize="sm" color="gray.500">
-                            Full Stack Developer
+                            {t("navbar.skill")}
                         </Text>
                     </VStack>
                 </HStack>
@@ -102,6 +103,12 @@ const Navbar = () => {
     };
 
     const NavbarComponent = () => {
+        const loc = useLocation();
+        const { t } = useTranslation();
+        const home = t("navbar.home");
+        const projects = t("navbar.projects");
+        const avatarTooltip = t("navbar.avatar.tooltip");
+
         if (isSmallDevice) {
             return (
                 <>
@@ -114,15 +121,14 @@ const Navbar = () => {
         } else {
             const routes = [
                 {
-                    title: "Home",
+                    title: home,
                     to: "/",
                 },
                 {
-                    title: "Projects",
+                    title: projects,
                     to: "/projects",
                 },
             ];
-            const loc = useLocation();
             const selected = (path: string) => {
                 return loc.pathname === path;
             };
@@ -138,11 +144,14 @@ const Navbar = () => {
             });
             return (
                 <>
-                    <ProfileAvatar tooltipLabel="Click to view my profile" />
+                    <ProfileAvatar tooltipLabel={avatarTooltip} />
                     <Spacer />
                     {buttons}
                     <Box mx="1.5rem">
                         <ThemeSwitcher />
+                    </Box>
+                    <Box display={{ base: "none", md: "block" }}>
+                        <LocaleSelector />
                     </Box>
                 </>
             );
@@ -158,7 +167,6 @@ const Navbar = () => {
                         as="nav"
                         px="3vw"
                         py="0.9rem"
-                        // borderBottom="0.01px solid #dce0e8"
                         borderBottom={`0.01px solid ${borderColors}`}
                         bg={bg}
                     >

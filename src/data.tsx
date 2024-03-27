@@ -70,3 +70,13 @@ export const tagMap = [
     ["Wgpu", <WGPUIcon />, "blue"],
     ["Vulkan", <VulkanIcon />, "red"],
 ];
+export const supportedLanguages = [
+    {
+        code: "en",
+        name: "English",
+    },
+    {
+        code: "es",
+        name: "Español",
+    },
+];
