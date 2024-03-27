@@ -8,9 +8,11 @@ import {
     Center,
     useColorModeValue,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 const Intro = () => {
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
+    const { t } = useTranslation();
 
     return (
         <>
@@ -36,14 +38,18 @@ const Intro = () => {
                                             md: "1.5rem",
                                         }}
                                     >
-                                        <span
+                                        {/* <span
                                             style={{
                                                 fontWeight: "bold",
                                             }}
                                         >
                                             Hello,
                                         </span>{" "}
-                                        my name is
+                                        my name is */}
+                                        {
+                                            // TODO: Fix the bold text
+                                        }
+                                        {t("home.intro.hello")}
                                     </Text>
                                     <Heading
                                         fontSize={{
@@ -57,14 +63,10 @@ const Intro = () => {
                                         Luis De La Cruz.
                                     </Heading>
                                     <Text color={textStyle} mt={5}>
-                                        I'm a Software Developer with experience
-                                        building web and mobile applications for
-                                        a variety of platforms.
+                                        {t("home.intro.paragraph")}
                                     </Text>
                                     <Text color={textStyle} mt={5}>
-                                        My areas of interest include 3D
-                                        Graphics, Low-level Programming, and
-                                        Backend infrastructure.
+                                        {t("home.intro.paragraph2")}
                                     </Text>
                                 </Text>
                             </Box>
