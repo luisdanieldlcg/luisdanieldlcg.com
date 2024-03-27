@@ -9,9 +9,9 @@ import { navbar_ES, sidebar_ES, floatingbar_ES, home_ES } from "../assets/i18n";
 i18n.use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        debug: true,
+        debug: true, // TODO: Set to false in production
         fallbackLng: "en",
-        returnObjects: true, ///assets/i18n/index.ts?url
+        returnObjects: true,
         resources: {
             en: {
                 translation: {

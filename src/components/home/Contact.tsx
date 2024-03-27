@@ -10,10 +10,11 @@ import {
 } from "@chakra-ui/react";
 import SlideUpWhenVisible from "../SlideUpWhenVisible";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
-
+    const { t } = useTranslation();
     return (
         <section id="contact">
             <Center>
@@ -28,7 +29,7 @@ const Contact = () => {
                                 fontFamily="Inter"
                                 color="#cba6f7"
                             >
-                                Get in touch.
+                                {t("home.contact.title") + "."}
                             </Heading>
 
                             <Text
@@ -37,9 +38,7 @@ const Contact = () => {
                                 textAlign="center"
                                 mt="10px"
                             >
-                                Feel free to reach out if you want a to build
-                                something together, have a question, or just
-                                want to connect.
+                                {t("home.contact.paragraph") + "."}
                             </Text>
 
                             <Text
@@ -48,7 +47,7 @@ const Contact = () => {
                                 textAlign="center"
                                 mt="10px"
                             >
-                                You can reach me at{" "}
+                                {t("home.contact.paragraph2") + " "}
                                 <a href="mailto:dadsa">
                                     <Text as="span" fontWeight="bold">
                                         hello.luisdanieldlcg@gmail.com

@@ -1,5 +1,14 @@
 {
-    "intro.hello": "Hola, mi nombre es",
+    "intro.hello": "<strong>Hola,</strong> mi nombre es",
     "intro.paragraph": "Soy un desarrollador de software con experiencia en la construcción de aplicaciones web y móviles para una variedad de plataformas.",
-    "intro.paragraph2": "Mis áreas de interés incluyen Gráficos 3D, Programación de bajo nivel e Infraestructura de backend."
+    "intro.paragraph2": "Mis áreas de interés incluyen Gráficos 3D, Programación de bajo nivel e Infraestructura de backend.",
+    "about.title": "Acerca de mí",
+    "about.paragraph": "¡Hola! Soy Luis. He estado programando desde finales de 2019 y he sido apasionado por ello desde entonces. Al ser autodidacta, he tenido que aprender muchas cosas por mi cuenta, lo que me ha ayudado a desarrollar un fuerte sentido de autonomía y habilidades para resolver problemas.",
+    "about.paragraph2": "Mis áreas de interés incluyen redes, sistemas operativos y gráficos 3D, muchas de las cuales he estado aprendiendo en mi tiempo libre.",
+    "projects.title": "Proyectos",
+    "projects.subtitle": "Aquí hay algunos de mis proyectos destacados",
+    "projects.more": "Haz clic para explorar más",
+    "contact.title": "Contáctame",
+    "contact.paragraph": "Si tienes alguna pregunta, sugerencia o simplemente quieres conectarte, no dudes en enviarme un mensaje",
+    "contact.paragraph2": "Puedes contactarme en"
 }

@@ -13,6 +13,7 @@ import SlideUpWhenVisible from "../SlideUpWhenVisible";
 import { Project } from "../../types/project";
 import ProjectCard from "../ProjectCard";
 import { GiClick } from "react-icons/gi";
+import { useTranslation } from "react-i18next";
 
 interface Props {
     projects: Project[];
@@ -30,7 +31,7 @@ const FeaturedProjects = ({ projects }: Props) => {
         />
     ));
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
-
+    const { t } = useTranslation();
     return (
         <section id="projects">
             <Box mt={20}>
@@ -44,13 +45,13 @@ const FeaturedProjects = ({ projects }: Props) => {
                             fontFamily="Inter"
                             color="#cba6f7"
                         >
-                            Projects.
+                            {t("home.projects.title") + "."}
                         </Heading>
                         <Text
                             fontSize={{ base: "md", md: "xl" }}
                             color={textStyle}
                         >
-                            Here are some of my featured projects.
+                            {t("home.projects.subtitle") + "."}
                         </Text>
                         <Box w="fit-content">
                             <Link
@@ -63,7 +64,7 @@ const FeaturedProjects = ({ projects }: Props) => {
                                         bgGradient="linear(to-l, #c6a0f6, #e4adbc)"
                                         bgClip="text"
                                     >
-                                        Click to explore more
+                                        {t("home.projects.more") + "."}
                                     </Text>
                                     <Icon as={GiClick} />
                                 </HStack>

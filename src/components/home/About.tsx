@@ -9,9 +9,11 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 import SlideUpWhenVisible from "../SlideUpWhenVisible";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
+    const { t } = useTranslation();
     return (
         <section id="about">
             <Center>
@@ -31,25 +33,16 @@ const About = () => {
                                     fontFamily="Inter"
                                     color="#cba6f7"
                                 >
-                                    About Me.
+                                    {t("home.about.title") + "."}
                                 </Heading>
 
                                 <Box mt={6} maxW="520px" transition="0.25s">
                                     <Text color={textStyle}>
-                                        Hey! I'm Luis. I've been programming
-                                        since late 2019, and have been
-                                        passionate about it ever since. Being
-                                        self-taught, I've had to learn a lot of
-                                        things on my own, which has helped me
-                                        develop a strong sense of autonomy and
-                                        problem-solving skills.
+                                        {t("home.about.paragraph")}
                                     </Text>
                                     <br />
                                     <Text color={textStyle}>
-                                        My areas of interest include networking,
-                                        operating systems and 3D graphics, many
-                                        of which I've been learning about in my
-                                        spare time.
+                                        {t("home.about.paragraph2")}
                                     </Text>
                                 </Box>
                             </Box>

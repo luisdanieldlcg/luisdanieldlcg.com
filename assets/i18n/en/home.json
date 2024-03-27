@@ -1,5 +1,14 @@
 {
-    "intro.hello": "Hello, my name is",
+    "intro.hello": "<strong>Hello,</strong> my name is",
     "intro.paragraph": "I'm a Software Developer with experience building web and mobile applications for a variety of platforms.",
-    "intro.paragraph2": "My areas of interest include 3D Graphics, Low-level Programming, and Backend infrastructure."
+    "intro.paragraph2": "My areas of interest include 3D Graphics, Low-level Programming, and Backend infrastructure.",
+    "about.title": "About Me",
+    "about.paragraph": "Hey! I'm Luis. I've been programming since late 2019, and have been passionate about it ever since. Being self-taught, I've had to learn a lot of things on my own, which has helped me develop a strong sense of autonomy and problem-solving skills.",
+    "about.paragraph2": "My areas of interest include networking, operating systems and 3D graphics, many of which I've been learning about in my spare time.",
+    "projects.title": "Projects",
+    "projects.subtitle": "Here are some of my featured projects",
+    "projects.more": "Click to explore more",
+    "contact.title": "Get in touch",
+    "contact.paragraph": "Feel free to reach out if you want a to build something together, have a question, or just want to connect",
+    "contact.paragraph2": "You can reach me at"
 }

@@ -8,7 +8,7 @@ import {
     Center,
     useColorModeValue,
 } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 const Intro = () => {
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
@@ -38,18 +38,7 @@ const Intro = () => {
                                             md: "1.5rem",
                                         }}
                                     >
-                                        {/* <span
-                                            style={{
-                                                fontWeight: "bold",
-                                            }}
-                                        >
-                                            Hello,
-                                        </span>{" "}
-                                        my name is */}
-                                        {
-                                            // TODO: Fix the bold text
-                                        }
-                                        {t("home.intro.hello")}
+                                        <Trans i18nKey="home.intro.hello" />
                                     </Text>
                                     <Heading
                                         fontSize={{
