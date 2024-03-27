@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaEnvelope, FaHome, FaProjectDiagram, FaUser } from "react-icons/fa";
 import ExtendedTooltip from "../../ExtendedTooltip";
 import { useTranslation } from "react-i18next";
+import { TbCode, TbHome, TbMail, TbUser } from "react-icons/tb";
 interface IconProps {
     id: string;
     as: As;
@@ -19,7 +20,7 @@ const AnimatedIcon = ({ as, id, label }: IconProps) => {
             >
                 <a href={`#${id}`}>
                     <motion.div whileHover={{ scale: 1.65 }}>
-                        {<Icon as={as} />}
+                        {<Icon as={as} boxSize={5} />}
                     </motion.div>
                 </a>
             </ExtendedTooltip>
@@ -42,22 +43,23 @@ const SideNavbar = () => {
             zIndex="100"
         >
             <AnimatedIcon
-                as={FaHome}
+                as={TbHome}
                 id="intro"
                 label={t("sidebar.icon.home.tooltip")}
             />
             <AnimatedIcon
-                as={FaUser}
+                as={TbUser}
                 id="about"
                 label={t("sidebar.icon.about.tooltip")}
             />
             <AnimatedIcon
-                as={FaProjectDiagram}
+                // as={FaProjectDiagram}
+                as={TbCode}
                 id="projects"
                 label={t("sidebar.icon.projects.tooltip")}
             />
             <AnimatedIcon
-                as={FaEnvelope}
+                as={TbMail}
                 id="contact"
                 label={t("sidebar.icon.contact.tooltip")}
             />

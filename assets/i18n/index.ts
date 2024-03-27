@@ -9,3 +9,6 @@ export { default as floatingbar_ES } from "./es/floatingbar.json";
 
 export { default as home_EN } from "./en/home.json";
 export { default as home_ES } from "./es/home.json";
+
+export { default as projects_EN } from "./en/projects.json";
+export { default as projects_ES } from "./es/projects.json";

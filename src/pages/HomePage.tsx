@@ -5,6 +5,8 @@ import Contact from "../components/home/Contact";
 import FeaturedProjects from "../components/home/FeaturedProjects";
 import { featuredProjects } from "../data";
 import SideNavbar from "../components/navbar/side/SideNavbar";
+import BottomNavbar from "../components/navbar/BottomNavbar";
+
 const HomePage = () => {
     return (
         <>
@@ -23,6 +25,7 @@ const HomePage = () => {
                 <FeaturedProjects projects={featuredProjects} />
                 <Contact />
             </VStack>
+            <BottomNavbar />
         </>
     );
 };

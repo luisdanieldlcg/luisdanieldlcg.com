@@ -22,6 +22,8 @@ export const featuredProjects: Project[] = [
         desc: "Explora is a multiplayer Voxel game made with Rust and WGPU. It's still in development, but you can check out the source code on GitHub.",
         tags: [["Rust", <FaRust />, "orange"]],
         httpLink: "https://github.com/DanikingRD/explora",
+        stars: 0,
+        forks: 0,
     },
 
     {
@@ -35,6 +37,8 @@ export const featuredProjects: Project[] = [
             ["Firebase", <TbBrandFirebase />, "yellow"],
         ],
         httpLink: "https://github.com/DanikingRD/whatsup",
+        stars: 0,
+        forks: 0,
     },
     {
         title: "Nappy",
@@ -50,6 +54,8 @@ export const featuredProjects: Project[] = [
             ["MongoDB", <SiMongodb />, "green"],
         ],
         httpLink: "https://github.com/DanikingRD/nappy",
+        stars: 0,
+        forks: 0,
     },
 ];
 

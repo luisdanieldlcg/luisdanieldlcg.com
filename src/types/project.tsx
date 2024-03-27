@@ -9,4 +9,6 @@ export type Project = {
     desc: string;
     tags: ProjectTag[];
     httpLink: string;
+    stars: number;
+    forks: number;
 };

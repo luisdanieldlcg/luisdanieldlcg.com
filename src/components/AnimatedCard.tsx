@@ -13,11 +13,8 @@ const AnimatedCard = ({ children }: Props) => {
                 <Card
                     bg={bgColor}
                     mt={3}
-                    maxW="lg"
-                    // opacity={0.9}
-                    // boxShadow="xl"
+                    maxW="xl"
                     borderRadius="xl"
-                    // nice shadow in all borders
                     boxShadow="rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;"
                 >
                     {children}

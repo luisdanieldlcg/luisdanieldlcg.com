@@ -147,10 +147,10 @@ const Navbar = () => {
                     <ProfileAvatar tooltipLabel={avatarTooltip} />
                     <Spacer />
                     {buttons}
-                    <Box mx="1.5rem">
+                    <Box mr={4}>
                         <ThemeSwitcher />
                     </Box>
-                    <Box display={{ base: "none", md: "block" }}>
+                    <Box display={{ base: "none", md: "block" }} mx="1.5rem">
                         <LocaleSelector />
                     </Box>
                 </>
