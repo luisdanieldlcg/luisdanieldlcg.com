@@ -48,7 +48,7 @@ const About = () => {
                             </Box>
                             <Center mt={12}>
                                 <Image
-                                    src="https://cdn-icons-png.flaticon.com/512/10770/10770873.png"
+                                    src="assets/icon/programmer.png"
                                     alt="about"
                                     boxSize="240px"
                                 />

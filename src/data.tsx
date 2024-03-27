@@ -43,7 +43,7 @@ export const featuredProjects: Project[] = [
     {
         title: "Nappy",
         imageUrl:
-            "https://github.com/DanikingRD/nappy-web/raw/main/misc/create_profile.png",
+            "https://github.com/luisdanieldlcg/nappy/blob/main/misc/login.png?raw=true",
         desc: "A CMS for creating and managing digital business cards.",
         tags: [
             ["Typescript", <TbBrandTypescript />, "blue"],

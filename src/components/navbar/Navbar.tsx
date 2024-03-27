@@ -18,16 +18,17 @@ import {
     AvatarBadge,
     VStack,
     Divider,
+    Heading,
 } from "@chakra-ui/react";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { NavLink as ReactRouterLink, useLocation } from "react-router-dom";
 import ThemeSwitcher from "../ThemeSwitcher";
-import { FaCode, FaHome } from "react-icons/fa";
 import NavbarButton from "./NavbarButton";
 import ExtendedTooltip from "../ExtendedTooltip";
 import LocaleSelector from "../LocaleSelector";
 import { useTranslation } from "react-i18next";
+import { TbCode, TbHome } from "react-icons/tb";
 
 interface ProfileAvatarProps {
     tooltipLabel?: string;
@@ -47,7 +48,7 @@ const ProfileAvatar = ({ tooltipLabel }: ProfileAvatarProps) => {
                 target="_blank"
             >
                 <HStack>
-                    <Avatar src="assets/logo.jpg" padding="0">
+                    <Avatar src="assets/icon/logo.jpg" padding="0">
                         <AvatarBadge
                             boxSize="1.1em"
                             bg="green.400"
@@ -76,27 +77,46 @@ const Navbar = () => {
         md: false,
     });
     const bg = useColorModeValue("bgLight", "bgDark");
-
+    const { t } = useTranslation();
     const DrawerComponent = () => {
         return (
             <Drawer isOpen={isOpen} onClose={onClose} placement="left">
                 <DrawerOverlay />
                 <DrawerContent bg={bg}>
                     <DrawerHeader>
-                        <h1>Menu</h1>
-                        <HStack mt="1rem">
-                            <ProfileAvatar />
+                        <Heading my={4} fontSize="2rem">
+                            {t("sidebar.drawer.title")}
+                        </Heading>
+                        <ProfileAvatar />
+                        <HStack mt={5}>
+                            <LocaleSelector />
                             <ThemeSwitcher />
                         </HStack>
                     </DrawerHeader>
                     <DrawerCloseButton size="lg" mr="1.2rem" />
                     <Divider />
-                    <Button variant="ghost" py="1.5rem" leftIcon={<FaHome />}>
-                        Home
-                    </Button>
-                    <Button variant="ghost" py="1.5rem" leftIcon={<FaCode />}>
-                        Projects
-                    </Button>
+                    <ReactRouterLink to="/">
+                        <Button
+                            variant="ghost"
+                            py="1.5rem"
+                            leftIcon={<TbHome size={20} />}
+                            w="100%"
+                        >
+                            {/* Home */}
+                            {t("navbar.home")}
+                        </Button>
+                    </ReactRouterLink>
+                    <ReactRouterLink to="/projects">
+                        <Button
+                            variant="ghost"
+                            py="1.5rem"
+                            leftIcon={<TbCode size={20} />}
+                            w="100%"
+                        >
+                            {/* Projects */}
+                            {t("navbar.projects")}
+                        </Button>
+                    </ReactRouterLink>
                 </DrawerContent>
             </Drawer>
         );

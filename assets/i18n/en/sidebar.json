@@ -2,5 +2,6 @@
     "icon.home.tooltip": "Intro",
     "icon.about.tooltip": "About",
     "icon.projects.tooltip": "Projects",
-    "icon.contact.tooltip": "Contact Me"
+    "icon.contact.tooltip": "Contact Me",
+    "drawer.title": "Menu"
 }

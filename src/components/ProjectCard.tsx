@@ -1,4 +1,5 @@
 import {
+    Box,
     CardBody,
     CardFooter,
     Divider,
@@ -73,16 +74,13 @@ const ProjectCard = ({
             <ScaleFade in={true} initialScale={0.25}>
                 <AnimatedCard>
                     <CardBody>
-                        {
-                            <Image
-                                src={imageUrl}
-                                alt="Project Image"
-                                borderRadius="md"
-                                h="300px"
-                                w="100%"
-                                fit="cover"
-                            />
-                        }
+                        <Image
+                            src={imageUrl}
+                            alt="Project Image"
+                            h="300px"
+                            w="100%"
+                            fit="contain"
+                        />
                         <Stack mt="6" spacing="3">
                             <HStack wrap="wrap">
                                 <Heading
