@@ -1,6 +1,5 @@
 import { As, HStack, Icon, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaHome, FaProjectDiagram, FaUser } from "react-icons/fa";
 import ExtendedTooltip from "../../ExtendedTooltip";
 import { useTranslation } from "react-i18next";
 import { TbCode, TbHome, TbMail, TbUser } from "react-icons/tb";
