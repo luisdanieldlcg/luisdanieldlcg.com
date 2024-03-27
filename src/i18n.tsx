@@ -2,8 +2,8 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-import { navbar_EN, sidebar_EN, floatingbar_EN } from "./assets/i18n";
-import { navbar_ES, sidebar_ES, floatingbar_ES } from "./assets/i18n";
+import { navbar_EN, sidebar_EN, floatingbar_EN } from "../assets/i18n";
+import { navbar_ES, sidebar_ES, floatingbar_ES } from "../assets/i18n";
 
 // refer to https://react.i18next.com/getting-started
 i18n.use(LanguageDetector)
@@ -11,7 +11,7 @@ i18n.use(LanguageDetector)
     .init({
         debug: true,
         fallbackLng: "en",
-        returnObjects: true,
+        returnObjects: true, ///assets/i18n/index.ts?url
         resources: {
             en: {
                 translation: {

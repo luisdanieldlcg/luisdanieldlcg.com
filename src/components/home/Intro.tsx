@@ -100,7 +100,7 @@ const Intro = () => {
 
                                     <Image
                                         boxSize={360}
-                                        src="src/assets/images/5.jpg"
+                                        src="assets/images/5.jpg"
                                         objectFit="cover" // Ensure the image covers the entire container
                                         borderRadius="md"
                                     />
