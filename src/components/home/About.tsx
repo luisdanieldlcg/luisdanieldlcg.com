@@ -34,7 +34,7 @@ const About = () => {
                                     About Me.
                                 </Heading>
 
-                                <Box mt={6} maxW="600px" transition="0.25s">
+                                <Box mt={6} maxW="520px" transition="0.25s">
                                     <Text color={textStyle}>
                                         Hey! I'm Luis. I've been programming
                                         since late 2019, and have been

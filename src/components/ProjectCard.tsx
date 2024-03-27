@@ -2,7 +2,6 @@ import {
     CardBody,
     CardFooter,
     Divider,
-    Flex,
     HStack,
     Heading,
     Image,

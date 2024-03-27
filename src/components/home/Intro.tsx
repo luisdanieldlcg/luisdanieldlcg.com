@@ -23,12 +23,12 @@ const Intro = () => {
                                 enter: { duration: 0.3, delay: 0.25 },
                             }}
                         >
-                            <Box mt={16} maxW="100%">
+                            <Box mt={16}>
                                 <Text
                                     as="div"
                                     fontSize="lg"
-                                    maxW="600"
-                                    ml="auto"
+                                    maxW="520px"
+                                    px="0px"
                                 >
                                     <Text
                                         fontSize={{
@@ -71,6 +71,9 @@ const Intro = () => {
                         </SlideFade>
 
                         <SlideFade
+                            style={{
+                                marginRight: 90,
+                            }}
                             in={true}
                             transition={{
                                 enter: { duration: 0.3, delay: 0.25 },
@@ -78,26 +81,30 @@ const Intro = () => {
                         >
                             <Box position="relative">
                                 {/* Image Shade */}
-                                <Box
-                                    boxSize={400}
-                                    zIndex="-1"
-                                    position="absolute"
-                                    top="10"
-                                    right="0"
-                                    bottom="-20"
-                                    left="50"
-                                    bg="#26292a"
-                                    bgGradient="linear(to-r, #1c1c2b, #7287fd)"
-                                    opacity="0.6"
-                                    borderRadius="md"
-                                ></Box>
+                                <Center>
+                                    <Box
+                                        // boxSize="100%"
+                                        h="100%"
+                                        w="75%"
+                                        zIndex="-1"
+                                        position="absolute"
+                                        top="14"
+                                        right="0"
+                                        bottom="0"
+                                        left="105"
+                                        bg="#26292a"
+                                        bgGradient="linear(to-r, #1c1c2b, #7287fd)"
+                                        opacity="0.6"
+                                        borderRadius="md"
+                                    ></Box>
 
-                                <Image
-                                    boxSize={360}
-                                    src="src/assets/images/5.jpg"
-                                    objectFit="cover" // Ensure the image covers the entire container
-                                    borderRadius="md"
-                                />
+                                    <Image
+                                        boxSize={360}
+                                        src="src/assets/images/5.jpg"
+                                        objectFit="cover" // Ensure the image covers the entire container
+                                        borderRadius="md"
+                                    />
+                                </Center>
                             </Box>
                         </SlideFade>
                     </SimpleGrid>

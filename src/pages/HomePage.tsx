@@ -9,7 +9,15 @@ const HomePage = () => {
     return (
         <>
             <SideNavbar />
-            <VStack as="main" spacing="244px" pb="144px">
+            <VStack
+                as="main"
+                spacing="244px"
+                pb="144px"
+                ml={{
+                    base: "0",
+                    md: "50px",
+                }}
+            >
                 <Intro />
                 <About />
                 <FeaturedProjects projects={featuredProjects} />

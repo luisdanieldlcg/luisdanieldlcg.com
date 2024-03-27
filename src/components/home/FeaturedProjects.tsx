@@ -75,7 +75,7 @@ const FeaturedProjects = ({ projects }: Props) => {
 
                 <SlideUpWhenVisible>
                     <SimpleGrid
-                        columns={{ sm: 1, md: 2 }}
+                        columns={{ sm: 1, lg: 2 }}
                         spacing={10}
                         gap={32}
                     >

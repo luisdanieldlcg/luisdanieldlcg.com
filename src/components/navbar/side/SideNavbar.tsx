@@ -35,7 +35,7 @@ const SideNavbar = () => {
             left="0"
             top="50%"
             transform="translateY(-50%)"
-            spacing="4"
+            spacing="6"
             display={{ base: "none", md: "flex" }}
             p="4"
             borderRadius="md"
