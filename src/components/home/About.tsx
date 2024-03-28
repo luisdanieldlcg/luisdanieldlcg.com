@@ -2,7 +2,7 @@ import {
     Box,
     Center,
     Flex,
-    Heading,
+    HStack,
     Image,
     SimpleGrid,
     Text,
@@ -10,10 +10,13 @@ import {
 } from "@chakra-ui/react";
 import SlideUpWhenVisible from "../SlideUpWhenVisible";
 import { useTranslation } from "react-i18next";
+import Title from "../Title";
+import { GiClick } from "react-icons/gi";
 
 const About = () => {
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
     const { t } = useTranslation();
+
     return (
         <section id="about">
             <Center>
@@ -25,16 +28,7 @@ const About = () => {
                     <SlideUpWhenVisible>
                         <SimpleGrid columns={{ base: 1, lg: 2 }} gap={6}>
                             <Box>
-                                <Heading
-                                    fontSize={{
-                                        base: "1.6rem",
-                                        md: "3.1rem",
-                                    }}
-                                    fontFamily="Inter"
-                                    color="#cba6f7"
-                                >
-                                    {t("home.about.title") + "."}
-                                </Heading>
+                                <Title title={t("home.about.title")} />
 
                                 <Box mt={6} maxW="520px" transition="0.25s">
                                     <Text color={textStyle}>
@@ -54,6 +48,16 @@ const About = () => {
                                 />
                             </Center>
                         </SimpleGrid>
+                        <HStack
+                            cursor="pointer"
+                            mt={6}
+                            spacing={2}
+                            color={textStyle}
+                            fontWeight="bold"
+                        >
+                            <Text>Learn more about me</Text>
+                            <GiClick />
+                        </HStack>
                     </SlideUpWhenVisible>
                 </Flex>
             </Center>

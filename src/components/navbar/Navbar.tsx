@@ -33,6 +33,7 @@ import { TbCode, TbHome } from "react-icons/tb";
 interface ProfileAvatarProps {
     tooltipLabel?: string;
 }
+import { nameAlt, githubUsername } from "../../../config.json";
 
 const ProfileAvatar = ({ tooltipLabel }: ProfileAvatarProps) => {
     const badgeBorderColor = useColorModeValue("white", "black");
@@ -44,7 +45,7 @@ const ProfileAvatar = ({ tooltipLabel }: ProfileAvatarProps) => {
             placement="bottom"
         >
             <ReactRouterLink
-                to="https://github.com/luisdanieldlcg"
+                to={`https://github.com/${githubUsername}`}
                 target="_blank"
             >
                 <HStack>
@@ -58,7 +59,7 @@ const ProfileAvatar = ({ tooltipLabel }: ProfileAvatarProps) => {
                     </Avatar>
                     <VStack alignItems="flex-start" spacing="0" ml="0.4rem">
                         <Text fontSize="sm" fontWeight="bold">
-                            Luis Daniel
+                            {nameAlt}
                         </Text>
                         <Text fontSize="sm" color="gray.500">
                             {t("navbar.skill")}

@@ -13,15 +13,15 @@ import {
 } from "react-icons/si";
 import { Project } from "./types/project";
 import { CIcon, VulkanIcon, WGPUIcon } from "./components/Icons";
+import { githubUsername } from "../config.json";
 
 export const featuredProjects: Project[] = [
     {
         title: "Explora",
-        imageUrl:
-            "https://github.com/DanikingRD/VoxelExperiment/raw/main/assets/game-screenshot.png",
+        imageUrl: `https://github.com/${githubUsername}/VoxelExperiment/raw/main/assets/game-screenshot.png`,
         desc: "Explora is a multiplayer Voxel game made with Rust and WGPU. It's still in development, but you can check out the source code on GitHub.",
         tags: [["Rust", <FaRust />, "orange"]],
-        httpLink: "https://github.com/DanikingRD/explora",
+        httpLink: `https://github.com/${githubUsername}/explora`,
         stars: 0,
         forks: 0,
     },
@@ -36,14 +36,13 @@ export const featuredProjects: Project[] = [
             ["Flutter", <TbBrandFlutter />, "blue"],
             ["Firebase", <TbBrandFirebase />, "yellow"],
         ],
-        httpLink: "https://github.com/DanikingRD/whatsup",
+        httpLink: `https:://github.com/${githubUsername}/whatsup`,
         stars: 0,
         forks: 0,
     },
     {
         title: "Nappy",
-        imageUrl:
-            "https://github.com/luisdanieldlcg/nappy/blob/main/misc/login.png?raw=true",
+        imageUrl: `https://github.com/${githubUsername}/nappy/blob/main/misc/login.png?raw=true`,
         desc: "A CMS for creating and managing digital business cards.",
         tags: [
             ["Typescript", <TbBrandTypescript />, "blue"],
@@ -53,7 +52,7 @@ export const featuredProjects: Project[] = [
             ["NestJS", <SiNestjs />, "red"],
             ["MongoDB", <SiMongodb />, "green"],
         ],
-        httpLink: "https://github.com/DanikingRD/nappy",
+        httpLink: `https://github.com/${githubUsername}/nappy`,
         stars: 0,
         forks: 0,
     },

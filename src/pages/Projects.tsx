@@ -22,6 +22,10 @@ const Projects = ({}: Props) => {
     const [loading, setLoading] = useState(true);
     const [query, setQuery] = useState("");
     const toast = useToast();
+    const search = projects.filter((project) => {
+        return project.title.toLowerCase().includes(query.toLowerCase());
+    });
+    const dividerColor = useColorModeValue("#dce0e8", "#3e3f52");
 
     useEffect(() => {
         (async () => {
@@ -41,11 +45,6 @@ const Projects = ({}: Props) => {
         })();
     }, []);
 
-    const search = projects.filter((project) => {
-        return project.title.toLowerCase().includes(query.toLowerCase());
-    });
-
-    const dividerColor = useColorModeValue("#dce0e8", "#3e3f52");
     return (
         <>
             <Box

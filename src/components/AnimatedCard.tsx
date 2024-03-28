@@ -4,13 +4,16 @@ import { motion } from "framer-motion";
 
 interface Props {
     children: React.ReactNode;
+    onClick?: () => void;
 }
-const AnimatedCard = ({ children }: Props) => {
+const AnimatedCard = ({ children, onClick }: Props) => {
     const bgColor = useColorModeValue("#dce0e8", "#181825");
     return (
         <SlideUpWhenVisible>
             <motion.div whileHover={{ scale: 1.05 }}>
                 <Card
+                    onClick={onClick}
+                    cursor="pointer"
                     bg={bgColor}
                     mt={3}
                     maxW="xl"

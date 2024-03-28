@@ -1,5 +1,4 @@
 import {
-    Heading,
     SimpleGrid,
     Image,
     Box,
@@ -9,6 +8,8 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 import { Trans, useTranslation } from "react-i18next";
+import Title from "../Title";
+import { name } from "../../../config.json";
 
 const Intro = () => {
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
@@ -40,17 +41,7 @@ const Intro = () => {
                                     >
                                         <Trans i18nKey="home.intro.hello" />
                                     </Text>
-                                    <Heading
-                                        fontSize={{
-                                            base: "1.6rem",
-                                            md: "3.1rem",
-                                        }}
-                                        fontFamily="Inter"
-                                        bgGradient="linear(to-l, #c6a0f6, #e4adbc)"
-                                        bgClip="text"
-                                    >
-                                        Luis De La Cruz.
-                                    </Heading>
+                                    <Title title={name + "."} gradient />
                                     <Text color={textStyle} mt={5}>
                                         {t("home.intro.paragraph")}
                                     </Text>

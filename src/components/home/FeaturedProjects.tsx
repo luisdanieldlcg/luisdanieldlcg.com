@@ -1,7 +1,6 @@
 import {
     Box,
     HStack,
-    Heading,
     Icon,
     Link,
     SimpleGrid,
@@ -14,6 +13,7 @@ import { Project } from "../../types/project";
 import ProjectCard from "../ProjectCard";
 import { GiClick } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
+import Title from "../Title";
 
 interface Props {
     projects: Project[];
@@ -37,16 +37,7 @@ const FeaturedProjects = ({ projects }: Props) => {
             <Box mt={20}>
                 <SlideUpWhenVisible>
                     <Stack>
-                        <Heading
-                            fontSize={{
-                                base: "1.6rem",
-                                md: "3.1rem",
-                            }}
-                            fontFamily="Inter"
-                            color="#cba6f7"
-                        >
-                            {t("home.projects.title") + "."}
-                        </Heading>
+                        <Title title={t("home.projects.title") + "."} />
                         <Text
                             fontSize={{ base: "md", md: "xl" }}
                             color={textStyle}

@@ -2,8 +2,6 @@ import { Button, useColorMode } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { BsMoonStars, BsSun } from "react-icons/bs";
 
-// props
-
 interface ThemeSwitcherProps {
     disableAnimation?: boolean;
 }

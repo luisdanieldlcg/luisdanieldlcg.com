@@ -11,6 +11,7 @@ import {
 import SlideUpWhenVisible from "../SlideUpWhenVisible";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { email, githubUsername, linkedin } from "../../../config.json";
 
 const Contact = () => {
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
@@ -19,7 +20,7 @@ const Contact = () => {
         <section id="contact">
             <Center>
                 <SlideUpWhenVisible>
-                    <Flex minH="50vh">
+                    <Flex minH="50vh" mr="4.5rem">
                         <VStack>
                             <Heading
                                 fontSize={{
@@ -41,35 +42,43 @@ const Contact = () => {
                                 {t("home.contact.paragraph") + "."}
                             </Text>
 
-                            <Text
-                                color={textStyle}
-                                maxW={500}
-                                textAlign="center"
-                                mt="10px"
-                            >
+                            <Text color={textStyle} maxW={500} mt="10px">
                                 {t("home.contact.paragraph2") + " "}
                                 <a href="mailto:dadsa">
                                     <Text as="span" fontWeight="bold">
-                                        hello.luisdanieldlcg@gmail.com
+                                        {email}
                                     </Text>
                                 </a>
                             </Text>
 
-                            <HStack mt={5}>
+                            <HStack mt={10} spacing={5}>
                                 <IconButton
                                     aria-label="github"
-                                    variant="ghost"
+                                    variant="outline"
                                     icon={<FaGithub />}
+                                    onClick={() => {
+                                        window.open(
+                                            `https://github.com/${githubUsername}`,
+                                            "_blank"
+                                        );
+                                    }}
                                 />
                                 <IconButton
                                     aria-label="linkedin"
-                                    variant="ghost"
+                                    variant="outline"
                                     icon={<FaLinkedin />}
+                                    onClick={() => {
+                                        // open new tab to linkedin
+                                        window.open(linkedin, "_blank");
+                                    }}
                                 />
                                 <IconButton
                                     aria-label="email"
-                                    variant="ghost"
+                                    variant="outline"
                                     icon={<FaEnvelope />}
+                                    onClick={() => {
+                                        window.open(`mailto:${email}`);
+                                    }}
                                 />
                             </HStack>
                         </VStack>
