@@ -3,7 +3,6 @@ import React from "react";
 
 interface Props {
     children: React.ReactNode;
-    // prevent lsp from complaining about unknown props
     [x: string]: any;
 }
 

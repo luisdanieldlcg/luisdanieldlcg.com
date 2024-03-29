@@ -8,6 +8,7 @@ import {
     floatingbar_EN,
     home_EN,
     projects_EN,
+    work_EN,
 } from "../assets/i18n";
 
 import {
@@ -16,6 +17,7 @@ import {
     floatingbar_ES,
     home_ES,
     projects_ES,
+    work_ES,
 } from "../assets/i18n";
 
 // refer to https://react.i18next.com/getting-started
@@ -33,6 +35,7 @@ i18n.use(LanguageDetector)
                     floatingbar: floatingbar_EN,
                     home: home_EN,
                     projects: projects_EN,
+                    work: work_EN,
                 },
             },
             es: {
@@ -42,6 +45,7 @@ i18n.use(LanguageDetector)
                     floatingbar: floatingbar_ES,
                     home: home_ES,
                     projects: projects_ES,
+                    work: work_ES,
                 },
             },
         },

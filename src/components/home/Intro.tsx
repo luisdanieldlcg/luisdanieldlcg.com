@@ -14,7 +14,6 @@ import { name } from "../../../config.json";
 const Intro = () => {
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
     const { t } = useTranslation();
-
     return (
         <>
             <section id="intro">
@@ -65,7 +64,6 @@ const Intro = () => {
                                 {/* Image Shade */}
                                 <Center>
                                     <Box
-                                        // boxSize="100%"
                                         h="100%"
                                         w="75%"
                                         zIndex="-1"

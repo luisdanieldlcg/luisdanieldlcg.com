@@ -12,3 +12,6 @@ export { default as home_ES } from "./es/home.json";
 
 export { default as projects_EN } from "./en/projects.json";
 export { default as projects_ES } from "./es/projects.json";
+
+export { default as work_EN } from "./en/work.json";
+export { default as work_ES } from "./es/work.json";
