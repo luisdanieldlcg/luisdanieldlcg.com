@@ -13,7 +13,7 @@ const HomePage = () => {
             <SideNavbar />
             <VStack
                 as="main"
-                spacing="244px"
+                spacing="325px"
                 pb="144px"
                 ml={{
                     base: "0",

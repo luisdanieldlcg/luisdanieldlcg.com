@@ -13,16 +13,11 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 import SlideUpWhenVisible from "../SlideUpWhenVisible";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import Title from "../Title";
-import { HiOutlineBriefcase } from "react-icons/hi";
 import ListTile from "../ListTile";
-import {
-    PiBriefcase,
-    PiBriefcaseBold,
-    PiBriefcaseDuotone,
-    PiBriefcaseLight,
-} from "react-icons/pi";
+import { PiBriefcaseLight } from "react-icons/pi";
+import HoverInfo from "../HoverInfo";
 
 const About = () => {
     const textStyle = useColorModeValue("mutedLight", "mutedDark");
@@ -33,7 +28,7 @@ const About = () => {
         <section id="about">
             <Center>
                 <Flex
-                    minH="80vh"
+                    minH="90vh"
                     justifyContent="center"
                     flexDirection="column"
                 >
@@ -48,22 +43,33 @@ const About = () => {
                                     </Text>
                                     <br />
                                     <Text color={textStyle}>
-                                        {t("home.about.paragraph2")}
+                                        <Trans
+                                            i18nKey="home.about.paragraph2"
+                                            components={{
+                                                hover: (
+                                                    <HoverInfo
+                                                        text={t(
+                                                            "home.about.paragraph2.hover"
+                                                        )}
+                                                        content={t(
+                                                            "home.about.paragraph2.hover.tooltip"
+                                                        )}
+                                                    />
+                                                ),
+                                            }}
+                                        />
                                     </Text>
-
-                                    {
-                                        <Box my={7}>
-                                            <Text
-                                                textAlign="center"
-                                                bgGradient="linear(to-l, #c6a0f6, #e4adbc)"
-                                                bgClip="text"
-                                                mt={6}
-                                                fontSize="2xl"
-                                            >
-                                                ∿∿∿∿∿
-                                            </Text>
-                                        </Box>
-                                    }
+                                    <Box my={7}>
+                                        <Text
+                                            textAlign="center"
+                                            bgGradient="linear(to-l, #c6a0f6, #e4adbc)"
+                                            bgClip="text"
+                                            mt={6}
+                                            fontSize="2xl"
+                                        >
+                                            ∿∿∿∿∿
+                                        </Text>
+                                    </Box>
                                     <Text color={textStyle} mt={6}>
                                         {t("home.about.paragraph3")}
                                     </Text>
@@ -79,7 +85,21 @@ const About = () => {
                                         </ListItem>
 
                                         <ListItem>
-                                            {t("home.about.list2")}
+                                            <Trans
+                                                i18nKey="home.about.list2"
+                                                components={{
+                                                    hover: (
+                                                        <HoverInfo
+                                                            text={t(
+                                                                "home.about.list2.hover"
+                                                            )}
+                                                            content={t(
+                                                                "home.about.list2.hover.tooltip"
+                                                            )}
+                                                        />
+                                                    ),
+                                                }}
+                                            />
                                         </ListItem>
 
                                         <ListItem>
@@ -91,7 +111,21 @@ const About = () => {
                                         </ListItem>
 
                                         <ListItem>
-                                            {t("home.about.list5")}
+                                            <Trans
+                                                i18nKey="home.about.list5"
+                                                components={{
+                                                    hover: (
+                                                        <HoverInfo
+                                                            text={t(
+                                                                "home.about.list5.hover"
+                                                            )}
+                                                            content={t(
+                                                                "home.about.list5.hover.tooltip"
+                                                            )}
+                                                        />
+                                                    ),
+                                                }}
+                                            />
                                         </ListItem>
                                     </UnorderedList>
                                 </Box>
@@ -104,8 +138,8 @@ const About = () => {
                                         boxSize="240px"
                                     />
                                 </Center>
-                                <Center mt="15vh">
-                                    <SlideUpWhenVisible>
+                                <SlideUpWhenVisible>
+                                    <Center mt="15vh">
                                         <Box
                                             border="1px solid"
                                             borderColor={borderColor}
@@ -159,10 +193,8 @@ const About = () => {
                                                 />
                                             </Box>
                                         </Box>
-                                    </SlideUpWhenVisible>
-                                </Center>
-                                <Center>
-                                    <SlideUpWhenVisible>
+                                    </Center>
+                                    <Center>
                                         <Text
                                             mt={4}
                                             color={textStyle}
@@ -172,8 +204,8 @@ const About = () => {
                                             {t("work.job.list.description") +
                                                 "."}
                                         </Text>
-                                    </SlideUpWhenVisible>
-                                </Center>
+                                    </Center>
+                                </SlideUpWhenVisible>
                             </Box>
                         </SimpleGrid>
                     </SlideUpWhenVisible>
