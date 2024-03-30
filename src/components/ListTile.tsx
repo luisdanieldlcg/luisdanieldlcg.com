@@ -2,7 +2,6 @@ import {
     Circle,
     Flex,
     HStack,
-    Spacer,
     Text,
     useColorModeValue,
 } from "@chakra-ui/react";
