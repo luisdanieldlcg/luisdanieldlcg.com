@@ -49,7 +49,7 @@ const ProfileAvatar = ({ tooltipLabel }: ProfileAvatarProps) => {
                 target="_blank"
             >
                 <HStack>
-                    <Avatar src="assets/icon/logo.jpg" padding="0">
+                    <Avatar src="/favicon.ico" padding="0">
                         <AvatarBadge
                             boxSize="1.1em"
                             bg="green.400"
