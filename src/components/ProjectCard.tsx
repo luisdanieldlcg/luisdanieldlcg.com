@@ -78,7 +78,7 @@ const ProjectCard = ({
                             alt="Project Image"
                             h="300px"
                             w="100%"
-                            fit="contain"
+                            borderRadius="xl"
                         />
                         <Stack mt="6" spacing="3">
                             <HStack wrap="wrap">
