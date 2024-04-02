@@ -67,7 +67,6 @@ export const fetchRepositories = async (): Promise<Project[] | null> => {
         }
     );
     const json = await res.json();
-    console.log(json);
     const repos = json.items as Repository[];
     if (!repos) {
         return null;
