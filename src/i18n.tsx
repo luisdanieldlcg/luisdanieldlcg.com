@@ -24,7 +24,7 @@ import {
 i18n.use(LanguageDetector)
     .use(initReactI18next)
     .init({
-        debug: true, // TODO: Set to false in production
+        debug: false,
         fallbackLng: "en",
         returnObjects: true,
         resources: {
