@@ -1,6 +1,7 @@
 import {
     CardBody,
     CardFooter,
+    Center,
     Divider,
     HStack,
     Heading,
@@ -20,6 +21,7 @@ import { ProjectTag } from "../types/project";
 import { Link } from "react-router-dom";
 import AnimatedCard from "./AnimatedCard";
 import { GoRepoForked } from "react-icons/go";
+import { useState } from "react";
 
 interface Props {
     title: string;
@@ -67,19 +69,37 @@ const ProjectCard = ({
             <></>
         );
     const dividerColor = useColorModeValue("#b8bfcb", "#3e3f52");
-
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+    const loadImage = (event: any) => {
+        setDimensions({
+            width: event.target.naturalWidth,
+            height: event.target.naturalHeight,
+        });
+    };
     return (
         <Link to={httpLink} color="white" target="_blank">
             <ScaleFade in={true} initialScale={0.25}>
                 <AnimatedCard>
                     <CardBody>
-                        <Image
-                            src={imageUrl}
-                            alt="Project Image"
-                            h="300px"
-                            w="100%"
-                            borderRadius="xl"
-                        />
+                        <Center>
+                            <Image
+                                src={imageUrl}
+                                alt="Project Image"
+                                h={
+                                    dimensions.width > dimensions.height
+                                        ? "100%"
+                                        : "320px"
+                                }
+                                borderRadius="xl"
+                                objectFit={
+                                    dimensions.width > dimensions.height
+                                        ? "contain"
+                                        : "cover"
+                                }
+                                width="100%"
+                                onLoad={loadImage}
+                            />
+                        </Center>
                         <Stack mt="6" spacing="3">
                             <HStack wrap="wrap">
                                 <Heading
