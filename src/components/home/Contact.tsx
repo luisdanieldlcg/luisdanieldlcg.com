@@ -41,16 +41,19 @@ const Contact = () => {
                             >
                                 {t("home.contact.paragraph") + "."}
                             </Text>
-
-                            <Text color={textStyle} maxW={500} mt="10px">
+                            <Text
+                                color={textStyle}
+                                maxW={500}
+                                mt="10px"
+                                textAlign="center"
+                            >
                                 {t("home.contact.paragraph2") + " "}
-                                <a href="mailto:dadsa">
+                                <a href={`mailto:${email}`}>
                                     <Text as="span" fontWeight="bold">
                                         {email}
                                     </Text>
                                 </a>
                             </Text>
-
                             <HStack mt={10} spacing={5}>
                                 <IconButton
                                     aria-label="github"

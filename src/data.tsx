@@ -29,7 +29,7 @@ export const featuredProjects: Project[] = [
     {
         title: "WhatsUp",
         imageUrl:
-            "https://i.pinimg.com/736x/c5/41/53/c541531b152dc59e6f41899d7b2e4895.jpg",
+            "https://raw.githubusercontent.com/luisdanieldlcg/whatsup/5d3fb015e41d4be86a72e84bddec075b6a5ed247/assets/readme/whatsup.svg",
         desc: "WhatsUp is a WhatsApp clone built with Flutter and Firebase. It aims to replicate some of its core features but its main purpose is to showcase how easy it is to build real-time applications with Flutter and Firebase.",
         tags: [
             ["Dart", <SiDart />, "blue"],
