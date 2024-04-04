@@ -20,7 +20,7 @@ const Contact = () => {
         <section id="contact">
             <Center>
                 <SlideUpWhenVisible>
-                    <Flex minH="40vh" mr="4.5rem" mt={100}>
+                    <Flex minH="40vh" mt={100}>
                         <VStack>
                             <Heading
                                 fontSize={{
